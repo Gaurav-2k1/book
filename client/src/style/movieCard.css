@@ -1,0 +1,51 @@
+.thumbnail{
+    border-radius: 8px;
+    height:465px;
+    width: 249px;
+    object-fit: cover;
+}
+
+
+.holder{
+    height:465px;
+    width: 249px;
+    padding:10px;
+}
+
+.text_sub_2{
+    font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  position: static;
+  width: 249px;
+  height: 24px;
+  left: calc(50% - 249px/2);
+  top: 0px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 2px 0px;
+  }
+
+ .body1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    
+    
+    /* Neutral/Light Grey005 */
+    
+    color: #717171;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 2px 0px;
+    
+ } 

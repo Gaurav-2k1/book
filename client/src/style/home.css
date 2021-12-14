@@ -1,0 +1,9 @@
+.movies-list{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    height: 550px;
+    overflow-x:scroll;
+    white-space: nowrap;    
+}
