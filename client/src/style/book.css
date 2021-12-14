@@ -1,0 +1,75 @@
+
+.book{
+   height:528px;
+   width: 100%;
+}
+.heading-cont{
+    display: flex;
+    gap:2%
+}
+.movie-img-cont{
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+.movie-img-cont{
+    height: 441px;
+   
+}
+.movie-img-cont > img{
+    height: 100%;
+    border-radius: 10px;
+}
+.movie-detail{
+    margin-top: 80px;
+    align-items: left;
+    text-align: left;
+}
+
+.rating-box{
+    display: flex;
+     gap:200px;
+    background-color: #404043;
+    width:493px;
+    height:90px;
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+.add-rating-text{
+    font-size:22px;
+    color:#FFFFFF;
+    line-height: 24px;
+    font-family: Roboto;
+    font-weight: 500;
+}
+
+.add-rating-text + div{
+    font-size:16px;
+    font-weight:400;
+    color:#FFFFFF;
+}
+.rate-now-btn > button{
+    width:107px;
+    height:44px;
+    background-color:#FFFFFF;
+    color: #333545;
+    font-size: 18px;
+    font-weight:  500;
+ 
+}
+.movie-duration{
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 500;
+}
+.book-btn{
+    width: 236px;
+    height: 56px;
+    border-radius: 8px;
+    background-color:#E94362;
+    color: #FFFFFF;
+} 
+.book-btn:hover{
+    color: #FFFFFF;
+}

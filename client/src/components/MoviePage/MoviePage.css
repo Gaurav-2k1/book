@@ -1,72 +1,81 @@
-.outBox{
+.outBox {
+  width: 90%;
+  margin: auto;
+  padding: 2%;
+  border: 1px solid black;
+  background-color: #f5f5f5;
+}
+
+.enjoyBox {
+  text-align: left;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 18px 0px;
+  color: #717171;
+}
+.paraPlanning {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: left;
+  color: #717171;
+}
+
+.ticketsBook {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 13px;
+  color: #717171;
+  text-align: left;
+  margin: 18px 0px;
+}
+
+.displayMovies {
+  width: 90%;
+  margin: auto;
+  padding: 2%;
+  border: 1px solid black;
+  display: flex;
+  background-color: #f5f5f5;
+  margin-bottom: 2%;
+}
+.leftFilters {
+  width: 30%;
+  text-align: left;
+  border: 1px solid red;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+.languageFilters {
+  background-color: #ffffff;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .displayMovies {
     width: 90%;
     margin: auto;
-    padding: 10px;
-    border: 1px solid black;
-}
-
-.enjoyBox{
-    text-align: left;
-    font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 20px;
-margin: 18px 0px;
-color: #717171;
-}
-.paraPlanning{
-    font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 18px;
-/* or 150% */
-text-align: left;
-
-
-/* Neutral/Light Grey005 */
-
-color: #717171;
-}
-
-.ticketsBook{
-    /* Sub-heading/Sub-heading 5 */
-
-font-family: Roboto;
-font-style: normal;
-font-weight: 900;
-font-size: 12px;
-line-height: 13px;
-
-color: #717171;
-text-align: left;
-margin: 18px 0px;
-}
-
-.displayMovies{
-    width: 90%;
-    margin: auto;
-    padding: 10px;
+    padding: 2%;
     border: 1px solid black;
     display: flex;
-}
-.leftFilters{
-    width: 30%;
+    flex-direction: column;
+    background-color: #f5f5f5;
+  }
+  .leftFilters {
+    width: 100%;
     border: 1px solid red;
-}
-
-@media (max-width:500px) {
-    .displayMovies{
-        width: 90%;
-        margin: auto;
-        padding: 10px;
-        border: 1px solid black;
-        display: flex;
-        flex-direction: column;
-    }
-    .leftFilters{
-        width: 100%;
-        border: 1px solid red;
-    }
+  }
 }
