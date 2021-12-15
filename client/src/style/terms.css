@@ -42,9 +42,7 @@
   position: absolute;
   top: 88px; 
 }
-/* .conditions-description + ol li{
-    line-height: 50px;
-} */
+
 .terms-text-list li {
     line-height:22px;
 }
@@ -58,8 +56,12 @@
 }
 .cancel-btn{
     left:5px;
+    border: 1px solid #E94362;
+    color:#E94362;
 }
-
+.cancel-btn:hover{
+ color: #E94362;
+}
 .cancel-btn + button{
     left:250px;
 }

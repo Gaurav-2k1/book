@@ -21,7 +21,7 @@ export const Terms = ()=>{
                  <li>Patrons under the age of 18 years will not be allowed to watch the `A` rated movie.</li>
              </ol>
              </div>
-             <button className="btn btn-outline-danger cancel-btn">Cancel</button>
+             <button className="btn cancel-btn">Cancel</button>
              <button className="btn btn-danger">Submit</button>
              </div>
         </div>
