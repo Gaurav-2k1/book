@@ -6,4 +6,28 @@
     height: 550px;
     overflow-x:scroll;
     white-space: nowrap;    
+    max-width: 98%;
+}
+
+.heading-4{
+    font-weight: 900;
+    color:#000000;
+    font-size: 24px;
+    margin-left: 40px;
+}
+
+.heading-3{
+    font-size: 14px;
+    color: tomato;
+    margin-right: 40px;
+}
+
+
+.padd{
+    padding:5px;
+}
+.flex{
+    display: flex;
+    margin-left: 40px;
+    margin-right: 40px;
 }

@@ -21,6 +21,17 @@ export default function()
     },[]);
     return(<>
             <Menubar/>
+
+            <div className="container-fluid padd">
+                <div className="left">
+                    <p className="heading-4">Recommended Movies</p>
+                </div>
+                <div className="right">
+                    <p className="heading-3">see all &#8594;	</p>
+                </div>
+                <div className="clear"></div>
+            </div>
+
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
