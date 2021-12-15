@@ -1,6 +1,6 @@
 .menubar{
     display: flex;
-    background: #222539;
+    background: rgb(43, 49, 72);
     width: 100%;
     height: 40px;
     top:64.29%;
