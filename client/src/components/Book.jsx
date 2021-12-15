@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react';
-import "../style/book.css"
+import "../style/book.css";
+import { Bookcast } from './Bookcast';
+
 export const Book = ()=>{
    const [movies,setMovies] = useState([]);
 
@@ -12,7 +14,7 @@ const getData = async()=>{
     let {data}  = await axios.get("http://localhost:3004/movies");
    setMovies(data)
 }
-console.log(movies)
+// console.log(movies)
     return(
         <div className="book-cont">
    {
@@ -41,12 +43,11 @@ console.log(movies)
           </div>
        ))
    }
-     <h1 className='text-start'>About the movie</h1>
-     <p>Based on Jack Kirby`s Eternals, Marvel Studios brings yet another thrilling superhero flick with the saga of The Eternals, a race of immortal beings who lived on Earth and shaped its history and civilizations.</p>
-     <h1>Cast</h1>
-     <div className='cast-detail'>
-
+   <div>
+     <h1 className='text-start about-movie-text'>About the movie</h1>
+     <p className='movies-description'>Based on Jack Kirby`s Eternals, Marvel Studios brings yet another thrilling superhero flick with the saga of The Eternals, a race of immortal beings who lived on Earth and shaped its history and civilizations.</p>
      </div>
+      <Bookcast/>
         </div>
     )
 }
