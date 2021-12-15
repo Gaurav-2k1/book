@@ -1,0 +1,27 @@
+
+
+.privacy-note{  
+  background: #F5F5F5;
+  height:88px;
+  padding: 10px;
+}
+
+.privacy-text2  a{
+    color: tomato;
+    text-decoration: none;
+}
+
+.privacy-text{
+    font-size: 12px;
+    line-height: 13px;
+    font-weight: 900;
+    margin: 8px 0px;
+
+}
+.privacy-text2{
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    margin: 8px 0px;
+
+}
