@@ -8,19 +8,11 @@ import Home from './components/Home';
 
 function App() {
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <Switch>
-        <Route path="/moviepage"><MoviePage/></Route>
-        <Route path="/book"><Book/></Route>
-       
-=======
     <div className="App">      
       <Switch>
         <Route path="/moviepage"><MoviePage/></Route>
         <Route path="/book"><Book/></Route>
         <Route path="/"><Home/></Route>
->>>>>>> cedc09669c7635d30316e9ec6d3cc4910cd7abcd
     </Switch>
     </div>
   );

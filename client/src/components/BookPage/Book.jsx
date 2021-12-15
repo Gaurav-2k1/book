@@ -88,7 +88,7 @@ const getData = async()=>{
 
     {/* --------You might also like----------- */}
       <div>
-       <Booklike/>
+       <Booklike />
       </div>
         </div>
     )
