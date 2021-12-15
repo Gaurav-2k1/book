@@ -1,10 +1,11 @@
+import { nanoid } from "nanoid"
 
 export const Bookcast = ({item})=>{
   // console.log("item",item)
     return (
         <>
         {item.map((cast)=>(
-          <div className="col cast-col text-center">
+          <div className="col cast-col text-center" key={nanoid(5)}>
             <div className="cast-img-div">
             <img src={cast.img} className="cast-img" alt=""/>
             </div>
