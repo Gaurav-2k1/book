@@ -30,7 +30,7 @@
 
 .rating-box {
   display: flex;
-  gap: 200px;
+  gap: 50px;
   background-color: #404043;
   width: 493px;
   height: 90px;
@@ -42,7 +42,8 @@
   color: #ffffff;
   line-height: 24px;
   font-family: Roboto;
-  font-weight: 500;
+  font-weight: 400;
+  margin-bottom: 4px;
 }
 
 .add-rating-text + div {
@@ -84,22 +85,168 @@
   font-family: Roboto;
   padding: 10px;
   padding-left: 50px;
-  
 }
-.about-movie-text{
-  color:#232323;
+.about-movie-text {
+  color: #232323;
   font-weight: 900;
   font-size: 24px;
   margin-top: 20px;
   padding-left: 50px;
   margin-bottom: 10px;
 }
-.slick-arrow.slick-prev,.slick-arrow.slick-next{
-    background-color: gray;
+.slick-arrow.slick-prev,
+.slick-arrow.slick-next {
+  background-color: gray;
 }
-.slick-arrow.slick-prev:hover{
-    background-color: gray;
+.slick-arrow.slick-prev:hover {
+  background-color: gray;
 }
-.slick-arrow.slick-next:hover{
-    background-color: gray;
+.slick-arrow.slick-next:hover {
+  background-color: gray;
+}
+
+.cast-section {
+  max-width: 993px;
+}
+.cast-section h1 {
+  margin-left: 50px;
+  color: #232323;
+  font-weight: 900;
+  font-size: 24px;
+  margin-top: 20px;
+}
+.cast-col {
+  margin-left: 30px;
+}
+
+.cast-img-div {
+  height: 130px;
+  width: 128px;
+  margin: auto;
+}
+
+.cast-img-div > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 64px;
+}
+@media only screen and (max-width: 900px) {
+  .cast-img-div {
+    height: 60px;
+    width: 60px;
+    align-items: center;
+  }
+  .cast-img-div > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+  }
+}
+
+.top-review-section {
+  max-width: 993px;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.top-review-section h1 {
+  display: inline;
+}
+
+.top-review-section h1:nth-child(1) {
+  height: 32px;
+  width: 137px;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 28px;
+  text-align: left;
+  color: #232323;
+}
+
+.top-review-section h1:nth-child(2) {
+  color: #e94362;
+  margin-left: 67%;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.top-review-col {
+  height: 40px;
+  border: 1px solid #d8d8d8;
+  border-radius: 30px;
+}
+
+.slicker-review-content {
+  height: 280px;
+  width: 488px;
+  border-radius: 8px;
+  border: 1px solid #d8d8d8;
+}
+
+.user-img-likes {
+  display: flex;
+  width: 200px;
+}
+
+.user-img-likes-cont {
+  display: flex;
+  margin-top: 30px;
+}
+
+.user-img-likes {
+  margin-left: 10px;
+  color: #717171;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.user-img-likes + div {
+  width: 288px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.user-img-likes > img + span {
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.user-img-likes-cont + h1 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.user-img-likes-cont + h1 + p {
+  font-family: Roboto;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  width: 488px;
+  margin-left: 10px;
+}
+
+.likes-dislikes{
+  margin-top:50px;
+  margin-left: 10px;
+}
+
+.likes-dislikes > img + span{
+  margin-left:5px;
+  font-size:15px;
+  color:#717171;
+  font-family:900;
+}
+
+.dislike{
+  margin-left: 10px;
 }
