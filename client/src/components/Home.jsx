@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import axios from 'axios';
 import MovieCard from "./movie_card/MovieCard";
 import '../style/home.css'
+import Menubar from "./menubar/Menubar";
 
 
 export default function()
@@ -19,6 +20,7 @@ export default function()
 
     },[]);
     return(<>
+            <Menubar/>
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     

@@ -3,19 +3,16 @@ import { MoviePage } from './components/MoviePage/MoviePage';
 
 import { Book } from './components/Book';
 import { Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>Book My Show</h1>
+    <div className="App">      
       <Switch>
         <Route path="/moviepage"><MoviePage/></Route>
         <Route path="/book"><Book/></Route>
-    {/* <h1>Book My Show</h1> */}
-   
-    {/* <h1>Book My Show</h1> */}
-    {/* <Book/> */}
+        <Route path="/"><Home/></Route>
     </Switch>
     </div>
   );
