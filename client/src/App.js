@@ -9,6 +9,7 @@ import { Terms } from './components/Seat/Terms';
 import { Selectseat } from './components/Seat/Selectseat';
 
 
+
 function App() {
   return (
     <div className="App">      
