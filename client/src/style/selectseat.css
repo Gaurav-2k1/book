@@ -1,0 +1,110 @@
+.select-seat-container {
+  height: 424px;
+  width: 512px;
+  border: 1px solid rgb(236, 231, 231);
+  border-radius: 6px;
+}
+
+.select-seat-content {
+  position: relative;
+}
+
+.how-many-seat {
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  position: absolute;
+  top: 18px;
+  left: 192px;
+}
+
+.cycle-img {
+  position: absolute;
+  top: 82px;
+  left: 166px;
+}
+
+.btn-div-cont {
+  position: absolute;
+  top: 236px;
+  left: 140px;
+  /* margin-top: 20px; */
+}
+.btn-div-cont button {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  color: black;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.btn-div-cont button:hover {
+  background-color: #e94362;
+  color: aliceblue;
+}
+
+.line-img {
+  position: absolute;
+  top: 276px;
+  left: 14px;
+}
+
+.select-seat-btn {
+  position: absolute;
+  top: 362px;
+  left: 28px;
+  height: 40px;
+  width: 457px;
+  border-radius: 8px;
+  padding: 8px, 184px, 8px, 184px;
+}
+
+.seat-rate {
+  position: absolute;
+  top: 304px;
+  font-size: 12px;
+  text-align: center;
+}
+.classic {
+  left: 136px;
+}
+
+.prime {
+  left: 227px;
+}
+
+.recliner {
+  left: 318px;
+}
+
+.which-class {
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #717171;
+}
+.rate {
+  color: #232323;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 13px;
+}
+
+.available {
+  color: #00b240;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 13px;
+}

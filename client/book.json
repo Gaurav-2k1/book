@@ -1,0 +1,20 @@
+{
+    "movies":[
+        {
+            "title":"Eternals",
+            "img_url":"https://in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/tadap-et00307544-28-10-2021-11-57-38.jpg",
+            "likes":"80%",
+             "ratings":"4.5k",
+             "view":"3D",
+             "language":"Hindi",
+             "duration":"2h 9m",
+             "genre":["action","thriller","romantic"],
+             "certificate":"UA",
+             "release":"3 Dec 2020",
+             "bg_img":"https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/tadap-et00307544-28-10-2021-11-57-38.jpg",
+             "cast":[{"name":"Tara Sutraria","img":"https://in.bmscdn.com/iedb/artist/images/website/poster/large/tara-sutaria-30191-11-04-2018-11-57-15.jpg","role":"Ramisa"},{"name":"Tara Sutraria","img":"https://in.bmscdn.com/iedb/artist/images/website/poster/large/tara-sutaria-30191-11-04-2018-11-57-15.jpg","role":"Ramisa"},{"name":"Tara Sutraria","img":"https://in.bmscdn.com/iedb/artist/images/website/poster/large/tara-sutaria-30191-11-04-2018-11-57-15.jpg","role":"Ramisa"},{"name":"Tara Sutraria","img":"https://in.bmscdn.com/iedb/artist/images/website/poster/large/tara-sutaria-30191-11-04-2018-11-57-15.jpg","role":"Ramisa"},{"name":"Tara Sutraria","img":"https://in.bmscdn.com/iedb/artist/images/website/poster/large/tara-sutaria-30191-11-04-2018-11-57-15.jpg","role":"Ramisa"}]
+
+        }
+     
+    ]
+}

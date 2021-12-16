@@ -1,5 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Footer from "../footer/Footer";
+import Menubar from "../menubar/Menubar";
+import PrivacyNote from "../privacyNote/PrivacyNote";
 import "./MoviePage.css";
 export function MoviePage() {
   const [language, setLanguage] = useState(false);
@@ -26,8 +29,13 @@ export function MoviePage() {
     })
   }
   return (
+ 
     <div>
+       <Menubar/>
+
       <div className="displayMovies">
+
+        {/*----------------------- Left Side Filter--------------------- */}
         <div className="leftFilters">
           Filters
           <div className="languageFilters">
@@ -56,6 +64,8 @@ export function MoviePage() {
            </div>}
           </div>
         </div>
+
+     {/*---------------------------- Right Side Movie --------------------------------------*/}
 
         <div className="rightMovies">
           Movies in Bengaluru
@@ -171,6 +181,8 @@ export function MoviePage() {
           </div>
         </div>
       </div>
+      <PrivacyNote/>
+      <Footer/>
     </div>
   );
 }

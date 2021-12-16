@@ -1,5 +1,5 @@
 .outBox {
-  width: 90%;
+  width: 100%;
   margin: auto;
   padding: 2%;
   /* border: 1px solid black; */
@@ -38,7 +38,7 @@
 }
 
 .displayMovies {
-  width: 90%;
+  width: 100%;
   margin: auto;
   padding: 2%;
   /* border: 1px solid black; */
@@ -171,11 +171,13 @@
 
 .gridContainer {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 3%;
   margin-top: 2%;
 }
 .imagePara {
   width: 97%;
+  object-fit: cover;
 }
 .titlePara {
   width: 97%;
@@ -200,7 +202,7 @@
 }
 @media (max-width: 500px) {
   .displayMovies {
-    width: 90%;
+    width: 100%;
     margin: auto;
     padding: 2%;
     /* border: 1px solid black; */
