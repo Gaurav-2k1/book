@@ -1,14 +1,14 @@
 {
     "movies":[
         {
-            "title":"Eternals",
+            "title":"Tadap",
             "img_url":"https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:oi-discovery-catalog@@icons@@heart_202006300400.png,ox-24,oy-617,ow-29:ote-NzYlICAxOWsgdm90ZXM%3D,ots-29,otc-FFFFFF,oy-612,ox-70/et00307544-yyptlcywvw-portrait.jpg",
             "likes":"80%",
              "ratings":"4.5k",
-             "view":"3D",
+             "view":"2D",
              "language":"Hindi",
              "duration":"2h 9m",
-             "genre":["action","thriller","romantic"],
+             "genre":["Action","Thriller","Romantic"],
              "certificate":"UA",
              "release":"3 Dec 2020",
              "bg_img":"https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/tadap-et00307544-28-10-2021-11-57-38.jpg"
@@ -22,21 +22,21 @@
             "view":"3D",
             "language":"Hindi",
             "duration":"2h 9m",
-            "genre":["action","thriller","romantic"],
+            "genre":["Action","Thriller","Romantic"],
             "certificate":"UA",
             "release":"3 Dec 2020",
             "bg_img":"https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/tadap-et00307544-28-10-2021-11-57-38.jpg"
 
         },
         {
-            "title":"Eternals",
+            "title":"Tadap",
             "img_url":"https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:oi-discovery-catalog@@icons@@heart_202006300400.png,ox-24,oy-617,ow-29:ote-NzYlICAxOWsgdm90ZXM%3D,ots-29,otc-FFFFFF,oy-612,ox-70/et00307544-yyptlcywvw-portrait.jpg",
             "likes":"80%",
              "ratings":"4.5k",
-             "view":"3D",
+             "view":"4DX3D",
              "language":"Hindi",
              "duration":"2h 9m",
-             "genre":["action","thriller","romantic"],
+             "genre":["Action","Romantic"],
              "certificate":"UA",
              "release":"3 Dec 2020",
              "bg_img":"https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/tadap-et00307544-28-10-2021-11-57-38.jpg"
@@ -48,9 +48,9 @@
             "likes":"80%",
             "ratings":"4.5k",
             "view":"3D",
-            "language":"Hindi",
+            "language":"Punjabi",
             "duration":"2h 9m",
-            "genre":["action","thriller","romantic"],
+            "genre":["Action","Thriller","Romantic"],
             "certificate":"UA",
             "release":"3 Dec 2020",
             "bg_img":"https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/tadap-et00307544-28-10-2021-11-57-38.jpg"
@@ -65,7 +65,22 @@
             "view":"3D",
             "language":"Hindi",
             "duration":"2h 9m",
-            "genre":["action","thriller","romantic"],
+            "genre":["Action","Thriller"],
+            "certificate":"UA",
+            "release":"3 Dec 2020",
+            "bg_img":"https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/tadap-et00307544-28-10-2021-11-57-38.jpg"
+
+        }
+        ,
+        {
+            "title":"Pushpa",
+            "img_url":"https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:oi-discovery-catalog@@icons@@like_202006280402.png,ox-24,oy-617,ow-29:ote-NTQwayBsaWtlcw%3D%3D,ots-29,otc-FFFFFF,oy-612,ox-70/et00129538-xwwevjvulg-portrait.jpg",
+            "likes":"80%",
+            "ratings":"4.5k",
+            "view":"4DX3D",
+            "language":"Hindi",
+            "duration":"2h 9m",
+            "genre":["Action","Thriller","Romantic"],
             "certificate":"UA",
             "release":"3 Dec 2020",
             "bg_img":"https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/tadap-et00307544-28-10-2021-11-57-38.jpg"
@@ -78,24 +93,9 @@
             "likes":"80%",
             "ratings":"4.5k",
             "view":"3D",
-            "language":"Hindi",
+            "language":"English",
             "duration":"2h 9m",
-            "genre":["action","thriller","romantic"],
-            "certificate":"UA",
-            "release":"3 Dec 2020",
-            "bg_img":"https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/tadap-et00307544-28-10-2021-11-57-38.jpg"
-
-        }
-        ,
-        {
-            "title":"Pushpa",
-            "img_url":"https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:oi-discovery-catalog@@icons@@like_202006280402.png,ox-24,oy-617,ow-29:ote-NTQwayBsaWtlcw%3D%3D,ots-29,otc-FFFFFF,oy-612,ox-70/et00129538-xwwevjvulg-portrait.jpg",
-            "likes":"80%",
-            "ratings":"4.5k",
-            "view":"3D",
-            "language":"Hindi",
-            "duration":"2h 9m",
-            "genre":["action","thriller","romantic"],
+            "genre":["Action","Romantic"],
             "certificate":"UA",
             "release":"3 Dec 2020",
             "bg_img":"https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/tadap-et00307544-28-10-2021-11-57-38.jpg"

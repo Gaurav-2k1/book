@@ -8,6 +8,9 @@ export function MoviePage() {
   const [language, setLanguage] = useState(false);
   const [genre,setGenre] = useState(false);
   const [format,setFormat] = useState(false);
+  const [languageState, setLanguageState] = useState("");
+  const [genreState,setGenreState] = useState("");
+  const [formatState,setFormatState] = useState("");
   const [data,setData] = useState([]);
   const [show,setShow] = useState(false);
   var languages = ["Hindi","English","Tollywood","Punjabi","Bhojpuri","Japanese","Korean"];
@@ -18,6 +21,48 @@ export function MoviePage() {
     getData()
     console.log("hidata")
   }, [])
+
+ const handleSort = (lang)=>{
+  axios.get("http://localhost:3006/movies")
+  .then((res)=>{
+    var result =   res.data.filter(el=>{
+      return el.language == lang;
+     })
+     console.log(result,"result")
+     setData(result);
+     setLanguageState(lang);
+  })
+ 
+ }
+ const handleSortGenre = (gen)=>{
+  var genreArr = [];
+  axios.get("http://localhost:3006/movies")
+  .then((res)=>{
+    var result =   res.data.filter(el=>{
+      return (el.genre[0] == gen && el.language == languageState ||el.genre[1] == gen && el.language == languageState ||el.genre[2] == gen && el.language == languageState  );
+     })
+     console.log(result,"resultgenre")
+     setData(result);
+     setGenreState(gen)
+    })
+    
+    
+ 
+ 
+ }
+
+ const handleSortFormat = (form)=>{
+  axios.get("http://localhost:3006/movies")
+  .then((res)=>{
+    var result =   res.data.filter(el=>{
+      return (el.genre[0] == genreState && el.language == languageState && el.view == form ||el.genre[1] == genreState && el.language == languageState && el.view == form ||el.genre[2] == genreState && el.language == languageState && el.view == form );
+     })
+     console.log(result,"resultformat")
+     setData(result);
+     
+    });
+ 
+ }
 
   function getData(){
     console.log("hi")
@@ -31,7 +76,7 @@ export function MoviePage() {
   return (
  
     <div>
-       <Menubar/>
+      <Menubar/> 
 
       <div className="displayMovies">
 
@@ -39,28 +84,33 @@ export function MoviePage() {
         <div className="leftFilters">
           Filters
           <div className="languageFilters">
-            <div onClick ={()=> setLanguage(!language)} className="languageUpper"> 
-            <div>^</div>
-            <div> Languages</div>
-            <div>clear</div>
-           
+            <div onClick ={()=> setLanguage(!language)} className="languageUpper uppp"> 
+            <span>^  Languages</span>
+            <span>clear</span>
             </div>
            {!language?null: <div className="languageUpper">
-              {languages.map(el=><span key={el} className="namesMovieLanguage">{el}</span>)}
+              {languages.map(el=><span key={el} onClick={()=>handleSort(el)} className="namesMovieLanguage">{el}</span>)}
            </div>}
           </div>
 
+
           <div className="languageFilters">
-            <div onClick ={()=> setGenre(!genre)} className="languageUpper">Genre</div>
+            <div onClick ={()=> setGenre(!genre)} className="languageUpper uppp">
+            <span>^  Genres</span>
+            <span>clear</span>
+            </div>
            {!genre?null: <div className="languageUpper"> 
-            {genres.map(el=><span key={el} className="namesMovieLanguage">{el}</span>)}
+            {genres.map(el=><span key={el} onClick={()=>handleSortGenre(el)} className="namesMovieLanguage">{el}</span>)}
            </div>}
           </div>
 
           <div className="languageFilters">
-            <div onClick ={()=> setFormat(!format)} className="languageUpper">Format</div>
+            <div onClick ={()=> setFormat(!format)}  className="languageUpper uppp">
+            <span>^  Formats</span>
+            <span>clear</span>
+            </div>
            {!format?null: <div className="languageUpper">
-           {formats.map(el=><span key={el} className="namesMovieLanguage">{el}</span>)}
+           {formats.map(el=><span key={el} onClick={()=>handleSortFormat(el)} className="namesMovieLanguage">{el}</span>)}
            </div>}
           </div>
         </div>
@@ -70,19 +120,18 @@ export function MoviePage() {
         <div className="rightMovies">
           Movies in Bengaluru
           <div className="rightMoviesBelow">
-          {languages.map(el=><span key={el}
-          className="moviesNName">{el}</span>)}
+          {languages.map(el=><span key={el} onClick={()=>handleSort(el)} className="moviesNName">{el}</span>)}
            
           </div>
           <div className="rightMoviesComponent">
           <div className="moviesComponent1">Coming Soon</div>
-            <div className="moviesComponent2">Explore Upcoming Movies</div>
+            <div className="moviesComponent2">Explore Upcoming Movies {">"}</div>
           </div>
 
 
           <div>{!show?null:<div className="gridContainer">
             {
-              data.map(el=><div> 
+              data.map(el=><div className="gridItem"> 
                 <img className="imagePara" src={el.img_url}></img>
                 <p className="titlePara">{el.title}</p>
                 <p className="certificatePara">{el.certificate}</p>
@@ -182,7 +231,7 @@ export function MoviePage() {
         </div>
       </div>
       <PrivacyNote/>
-      <Footer/>
+      <Footer/> 
     </div>
   );
 }

@@ -137,8 +137,9 @@
 
 .languageUpper {
   /* height: 80%; */
-  width: 80%;
+  width: 100%;
   display: flex;
+ 
   flex-wrap: wrap;
   font-family: Roboto;
   font-style: normal;
@@ -152,6 +153,10 @@
   /* Primary/Ruby Pink */
 
   color: #e94362;
+}
+.uppp{
+  display: flex;
+  justify-content: space-between;
 }
 .namesMovieLanguage {
   width: 24%;
@@ -200,6 +205,14 @@
 
   color: #717171;
 }
+.clearDiv{
+  display: flex;
+  justify-content: space-between;
+
+}
+.gridItem p{
+  margin: 0px;
+}
 @media (max-width: 500px) {
   .displayMovies {
     width: 100%;
@@ -217,5 +230,28 @@
   .rightMovies {
     width: 100%;
     
+  }
+  .moviesNName {
+  
+    width: 23%;
+    padding: 3%;
+    text-align: center;
+    background-color: #e94362;
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    border-radius: 100px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 8px;
+    line-height: 13px;
+    color: #ffffff;
+  }
+  .gridItem p{
+    margin: 0px;
+    font-size: 10px;
+  }
+  .gridItem img{
+    width: 80%;
   }
 }
