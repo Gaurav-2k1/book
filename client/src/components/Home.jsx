@@ -9,6 +9,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button'
 import LocationPicker from "./LocationPickup/LocationPicker";
 import { AppContext } from "../contexts/AppContext";
+import Navbar from "./navbar/Navbar";
 
 
 export default function()
@@ -30,7 +31,7 @@ export default function()
         
 
         window.addEventListener('load',(e)=>{
-            setShowModal(true);
+            //setShowModal(true);
             
         })
         let data=await axios.get(`${process.env.REACT_APP_HOST}/movies`);
@@ -44,7 +45,9 @@ export default function()
 
     
     return(<>
-            <Menubar/>
+
+
+            
 
 
             <Modal size="xl" show={showModal} onHide={handleClose} style={{}}>
@@ -57,6 +60,9 @@ export default function()
                 <p className="red">View All Cities</p>
                 
             </Modal>
+
+            <Navbar/>
+            <Menubar/>
             <div className="container-fluid padd">
                 <div className="left">
                     <p className="heading-4">Recommended Movies</p>
