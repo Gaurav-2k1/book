@@ -16,6 +16,8 @@ export default function()
 {
 
     const [movies,setMovies]=useState([]);
+
+    const imagesCard = ["https://in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MTcwKyBFdmVudHM%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300/workshops-collection-202007231330.png","https://in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MTAgRXZlbnRz,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300/fitness-collection-2020081150.png","https://in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-NDArIEV2ZW50cw%3D%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300/kids-collection-202007220710.png","https://in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MTUwKyBFdmVudHM%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300/comedy-shows-collection-202007220710.png","https://in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MzUrIEV2ZW50cw%3D%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300/music-shows-collection-202007220710.png"];
     
     const [showModal,setShowModal]=useState(false);
     let {city,handleChange}=useContext(AppContext);
@@ -38,7 +40,7 @@ export default function()
         
 
         window.addEventListener('load',(e)=>{
-            //setShowModal(true);
+            setShowModal(true);
             
         })
         let data=await axios.get(`${process.env.REACT_APP_HOST}/movies`);
@@ -58,8 +60,7 @@ export default function()
 
 
             <Modal size="xl" show={showModal} onHide={handleClose} style={{}}>
-                <Modal.Header closeButton>                
-                </Modal.Header>
+               
                 <Modal.Body>
                     <LocationPicker handleClose={(handleClose)} />
                 </Modal.Body>
@@ -93,6 +94,23 @@ export default function()
             <br/>
 
             <img className="img-fluid padded-img" src="https://in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/lead-in-v3-collection-202102040828.png"/>
+
+            <br/>
+            <br/>
+            <br/>
+            
+            <p className="heading-4">The Best Of Entertainment</p>
+
+            <div className="image-flex">
+            <br/>
+
+                        {imagesCard.map((el)=>{
+                            
+                            return <img src={el} />
+                        })}
+            </div>
+
+
 
             <br/>
             <br/>
