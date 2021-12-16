@@ -1,11 +1,12 @@
 import "../../style/terms.css"
+import { Selectseat } from "./Selectseat"
 export const Terms = ()=>{
   
     return (
         <div className="terms-cont p-1">
             <div className="terms-content">
              <div className="terms-text">Terms & Conditions</div>
-             <div>x</div>
+             <div button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" style={{marginLeft:"-20px"}}></div>
              <div className="conditions-description">
              <div>Pre-booked Food & Beverages have to be collected by the patron from the F&B counter by showing the Booking ID</div>
              <ol className="terms-text-list">
@@ -21,8 +22,8 @@ export const Terms = ()=>{
                  <li>Patrons under the age of 18 years will not be allowed to watch the `A` rated movie.</li>
              </ol>
              </div>
-             <button className="btn cancel-btn">Cancel</button>
-             <button className="btn btn-danger">Submit</button>
+             <button className="btn cancel-btn" data-bs-dismiss="modal">Cancel</button>
+             <button  className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit</button>
              </div>
         </div>
     )
