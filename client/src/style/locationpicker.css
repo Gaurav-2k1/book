@@ -1,0 +1,27 @@
+.box{
+    height: 300px;
+    
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+}
+
+
+.grow{    
+    flex-grow: 1;
+
+}
+
+.red{
+    color:tomato;
+    text-align: center;
+    
+}
+
+.grow img{
+    max-height: 50px;
+    max-width: 100px;
+}
