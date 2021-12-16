@@ -7,12 +7,12 @@ import Button  from 'react-bootstrap/Button'
 
 
 
-export default function()
+export default function({toggle})
 {
 
     const {city,handleChange} = useContext(AppContext)
 
-
+    console.log("Toggled location function",toggle)
     return(<>
 
         <div className="container-fluid navbar">
@@ -28,7 +28,7 @@ export default function()
                    
                </div>
 
-                <div>
+                <div onClick={toggle}>
                     <p className='sub'>{city} <img className='img-fluid' src='down.png'/></p>
                 </div>
                <Button className='btn-signin'>Signin</Button>

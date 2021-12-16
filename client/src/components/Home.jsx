@@ -27,6 +27,13 @@ export default function()
         setShowModal(false);
     }
 
+    function toggleLocationPickup(e)
+    {
+        console.log(e);
+        let set = !showModal;
+        setShowModal(set);
+    }
+
     useEffect(async ()=>{
         
 
@@ -61,7 +68,7 @@ export default function()
                 
             </Modal>
 
-            <Navbar/>
+            <Navbar  toggle={toggleLocationPickup}/>
             <Menubar/>
             <div className="container-fluid padd">
                 <div className="left">
