@@ -9,6 +9,11 @@
     max-width: 98%;
 }
 
+
+.movies-list::-webkit-scrollbar {
+    display: none;
+  }
+
 .heading-4{
     font-weight: 900;
     color:#000000;

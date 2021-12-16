@@ -10,7 +10,9 @@ import Button from 'react-bootstrap/Button'
 import LocationPicker from "./LocationPickup/LocationPicker";
 import { AppContext } from "../contexts/AppContext";
 import Navbar from "./navbar/Navbar";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default function()
 {
@@ -24,7 +26,16 @@ export default function()
     
     console.log(city,handleChange)
     
-
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 200,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveheight:false,
+        autoplay:true,
+        autoplaySpeed:2599
+      };
     function handleClose(e){
         setShowModal(false);
     }
@@ -71,6 +82,21 @@ export default function()
 
             <Navbar  toggle={toggleLocationPickup}/>
             <Menubar/>
+
+
+            <Slider {...settings} style={{maxWidth:'100%',maxHeight:'324px',marginRight:'20px',marginLeft:'20px',marginTop:'20px'}}>
+          <div>
+            <img src="https://in.bmscdn.com/promotions/cms/creatives/1639378314392_revisedbanner2.jpg" style={{objectFit:'cover',width:'100%'}}/>
+          </div>
+          <div>
+          <img src="https://in.bmscdn.com/promotions/cms/creatives/1639051788302_sunburn.jpg" style={{objectFit:'cover',width:'100%'}}/>
+          </div>
+          <div>
+          <img src="https://in.bmscdn.com/promotions/cms/creatives/1637323134871_divinepunyapaaptour_webshowcase_1240x300.jpg" style={{objectFit:'cover',width:'100%'}}/>
+          </div>
+          
+        </Slider>
+
             <div className="container-fluid padd">
                 <div className="left">
                     <p className="heading-4">Recommended Movies</p>
@@ -91,13 +117,12 @@ export default function()
             </div>
 
             <br/>
-            <br/>
+   
 
             <img className="img-fluid padded-img" src="https://in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/lead-in-v3-collection-202102040828.png"/>
 
             <br/>
-            <br/>
-            <br/>
+        
             
             <p className="heading-4">The Best Of Entertainment</p>
 
@@ -113,8 +138,7 @@ export default function()
 
 
             <br/>
-            <br/>
-            <br/>
+        
             
 
             <div className="premier-container">
@@ -135,7 +159,7 @@ export default function()
             </div>
 
             <br/>
-            <br/>
+   
 
             <div className="container-fluid padd">
                 <div className="left">
@@ -157,7 +181,7 @@ export default function()
                 
             </div>
             <br/>
-            <br/>
+      
 
             <div className="container-fluid padd">
                 <div className="left">
@@ -179,7 +203,7 @@ export default function()
                 
             </div>
             <br/>
-            <br/>
+   
 
             <div className="container-fluid padd">
                 <div className="left">
@@ -201,7 +225,7 @@ export default function()
                 
             </div>
             <br/>
-            <br/>
+       
 
             <div className="container-fluid padd">
                 <div className="left">
