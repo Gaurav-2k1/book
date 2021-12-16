@@ -10,6 +10,7 @@ import { Selectseat } from './components/Seat/Selectseat';
 import { Slotbooking } from './components/Slotbooking.jsx/Slotbooking';
 
 
+
 function App() {
   return (
     <div className="App">      
