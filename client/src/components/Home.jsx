@@ -1,19 +1,38 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import axios from 'axios';
 import MovieCard from "./movie_card/MovieCard";
 import '../style/home.css'
 import Menubar from "./menubar/Menubar";
 import PrivacyNote from "./privacyNote/PrivacyNote";
 import Footer from "./footer/Footer";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button'
+import LocationPicker from "./LocationPickup/LocationPicker";
+import { AppContext } from "../contexts/AppContext";
 
 
 export default function()
 {
 
     const [movies,setMovies]=useState([]);
+    
+    const [showModal,setShowModal]=useState(false);
+    let {city,handleChange}=useContext(AppContext);
+    
+    console.log(city,handleChange)
+    
+
+    function handleClose(e){
+        setShowModal(false);
+    }
 
     useEffect(async ()=>{
         
+
+        window.addEventListener('load',(e)=>{
+            setShowModal(true);
+            
+        })
         let data=await axios.get(`${process.env.REACT_APP_HOST}/movies`);
         //console.log(data.data);
         setMovies(data.data);
@@ -21,9 +40,23 @@ export default function()
 
 
     },[]);
+
+
+    
     return(<>
             <Menubar/>
 
+
+            <Modal size="xl" show={showModal} onHide={handleClose} style={{}}>
+                <Modal.Header closeButton>                
+                </Modal.Header>
+                <Modal.Body>
+                    <LocationPicker handleClose={(handleClose)} />
+                </Modal.Body>
+                
+                <p className="red">View All Cities</p>
+                
+            </Modal>
             <div className="container-fluid padd">
                 <div className="left">
                     <p className="heading-4">Recommended Movies</p>
