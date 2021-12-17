@@ -3,7 +3,6 @@ const Movie = require('../models/movie.model');
 const router = express.Router();
 
 router.get("/",async (req,res)=>{
-    
     const allMovies = await Movie.find({});
     res.status(200).send(allMovies);
 
@@ -22,6 +21,10 @@ router.post("/create",async(req,res)=>{
 
 });
 
+router.get("/:id",async(req,res)=>{
+    const movie = await Movie.findById(req.params.id).lean().exec();
+    return res.status(200).send([movie])
+})
 router.patch("/:id/update",async(req,res)=>{
     const movie = await Movie.findByIdAndUpdate(req.params.id,req.body,{new:true});
     return res.status(200).send(movie)

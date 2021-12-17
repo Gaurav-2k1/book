@@ -20,12 +20,25 @@ router.get("/:emailId",async(req,res)=>{
 
 
 
-router.post("/",async(req,res)=>{
+router.post("/create",async(req,res)=>{
 
     let createBooking=await Book.create(req.body);
 
 
     res.status(201).send(createBooking);
+
+
+
+
+
+})
+
+router.patch("/create/:id",async(req,res)=>{
+
+    let updatedBooking=await Book.findByIdAndUpdate(req.params.id,req.body);
+
+
+    res.status(201).send(updatedBooking);
 
 
 

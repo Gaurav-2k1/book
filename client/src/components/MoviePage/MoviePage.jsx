@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./MoviePage.css";
+import {Link} from 'react-router-dom'
 export function MoviePage() {
   const [language, setLanguage] = useState(false);
   const [genre,setGenre] = useState(false);
@@ -43,7 +44,7 @@ export function MoviePage() {
   }, [])
 
  const handleSort = (lang)=>{
-  axios.get("http://localhost:3006/movies")
+  axios.get("http://localhost:5000/movies")
   .then((res)=>{
     var result =   res.data.filter(el=>{
       return el.language == lang;
@@ -56,7 +57,7 @@ export function MoviePage() {
  }
  const handleSortGenre = (gen)=>{
   var genreArr = [];
-  axios.get("http://localhost:3006/movies")
+  axios.get("http://localhost:5000/movies")
   .then((res)=>{
     var result =   res.data.filter(el=>{
       return (el.genre[0] == gen && el.language == languageState ||el.genre[1] == gen && el.language == languageState ||el.genre[2] == gen && el.language == languageState  );
@@ -65,14 +66,10 @@ export function MoviePage() {
      setData(result);
      setGenreState(gen)
     })
-    
-    
- 
- 
  }
 
  const handleSortFormat = (form)=>{
-  axios.get("http://localhost:3006/movies")
+  axios.get("http://localhost:5000/movies")
   .then((res)=>{
     var result =   res.data.filter(el=>{
       return (el.genre[0] == genreState && el.language == languageState && el.view == form ||el.genre[1] == genreState && el.language == languageState && el.view == form ||el.genre[2] == genreState && el.language == languageState && el.view == form );
@@ -84,15 +81,12 @@ export function MoviePage() {
  
  }
 
-  function getData(){
-    console.log("hi")
-    axios.get("http://localhost:3006/movies")
-    .then((res)=>{
-      console.log(res.data);
-    setData(res.data)
+  async function getData(){
+    let {data} = await axios.get("http://localhost:5000/movies")
+    setData(data)
     setShow(true)
-    })
   }
+
   return (
  
     <div>
@@ -169,12 +163,13 @@ export function MoviePage() {
           <div>{!show?null:<div className="gridContainer">
             {
               data.map(el=><div className="gridItem"> 
+              <Link to = {`/movie/${el._id}`}>
                 <img className="imagePara" src={el.img_url}></img>
                 <p className="titlePara">{el.title}</p>
                 <p className="certificatePara">{el.certificate}</p>
-                <p className="certificatePara">{el.language}</p>
-
-                
+                <p className="certificatePara" style={{fontSize:"12px"}}><span className="me-1">{el.language}</span></p>
+                </Link>
+         
               </div>)
             }
             
