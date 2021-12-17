@@ -12,7 +12,8 @@ const movieSchema = new mongoose.Schema({
     genre:[{type:String}],
     certificate:{type:String},
     release:{type:String},
-    bg_img:{type:String}
+    bg_img:{type:String},
+    location:{type:String}
 },{
     versionKey:false,
     timestamps:true

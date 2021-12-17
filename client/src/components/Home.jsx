@@ -14,6 +14,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
+import {Link }from 'react-router-dom';
+
 export default function()
 {
 
@@ -54,9 +56,18 @@ export default function()
             setShowModal(true);
             
         })
-        let data=await axios.get(`${process.env.REACT_APP_HOST}/movies`);
-        //console.log(data.data);
-        setMovies(data.data);
+//        let data=await axios.get(`${process.env.REACT_APP_HOST}/movies`,{});
+
+            fetch('http://localhost:5000/movies',{mode:'cors'}).then((res)=>{
+                res.json().then((data)=>{
+                    console.log("data",data);
+                    setMovies(data)
+                })
+            }).catch((e)=>{
+                console.error(e);
+            });
+            //console.log(data.data);
+        //setMovies(data.data);
 
 
 
@@ -110,7 +121,7 @@ export default function()
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return <MovieCard title={el.title} image={el.img_url} tag={el.genre[0]}/>
+                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 
@@ -151,7 +162,7 @@ export default function()
                     <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return <MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" />
+                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 
@@ -175,7 +186,7 @@ export default function()
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return <MovieCard title={el.title} image={el.img_url} tag={el.genre[0]}/>
+                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 
@@ -197,7 +208,7 @@ export default function()
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return <MovieCard title={el.title} image={el.img_url} tag={el.genre[0]}/>
+                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 
@@ -219,7 +230,7 @@ export default function()
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return <MovieCard title={el.title} image={el.img_url} tag={el.genre[0]}/>
+                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 
@@ -241,7 +252,7 @@ export default function()
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return <MovieCard title={el.title} image={el.img_url} tag={el.genre[0]}/>
+                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 

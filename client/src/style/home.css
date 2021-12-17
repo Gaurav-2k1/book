@@ -9,7 +9,9 @@
     max-width: 98%;
 }
 
-
+a{
+    text-decoration: none;
+}
 .movies-list::-webkit-scrollbar {
     display: none;
   }

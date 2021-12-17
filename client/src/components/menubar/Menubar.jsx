@@ -1,12 +1,17 @@
 import '../../style/menubar.css'
 
+import {Link} from 'react-router-dom';
+import { useContext } from 'react';
+import { AppContext } from '../../contexts/AppContext';
 export default function(){
     
+
+    const {city,setCity}=useContext(AppContext);
     
     return(<>   
             <div className="container-fluid menubar">
                 <div className="flex left">
-                <p className="menubar-item">Movies</p>
+                <Link to={`/moviepage/${city}`}><p className="menubar-item">Movies</p></Link>
                 <p className="menubar-item">Stream <sup>new</sup></p>
                 <p className="menubar-item">Events</p>
                 <p className="menubar-item">Plays</p>
