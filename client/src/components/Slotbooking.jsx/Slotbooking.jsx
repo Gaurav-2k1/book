@@ -7,55 +7,63 @@ import { Terms } from "../Seat/Terms";
 
 export const Slotbooking = () => {
   const [movie, setMovie] = useState([]);
-  const [timearr,setTimearr] = useState([]);
-  const [slottime,setSlottime] = useState([]);
-  const {id} = useParams();
- 
+  const [timearr, setTimearr] = useState([]);
+  const [slottime, setSlottime] = useState([]);
+  const { id } = useParams();
 
-   const handleSortbyTime = (e)=>{
-     console.log(slottime)
-    if(e.target.value==="all"){
-      setTimearr(slottime)
+  const handleSortbyTime = (e) => {
+    console.log(e.target.value);
+
+    switch (e.target.value) {
+      case "all":
+        setTimearr(slottime);
+        break;
+
+      case "morning":
+        var sorted_time_arr = slottime.filter((item) => {
+          if (item.time > 6 && item.time < 12) {
+            return true;
+          }
+        })
+        setTimearr(sorted_time_arr);
+        break;
+
+      case "afternoon":
+        var sorted_time_arr = slottime.filter((item) => {
+          if (item.time > 12 && item.time < 16) {
+            return true;
+          }
+        })
+        setTimearr(sorted_time_arr);
+        break;
+
+      case "evening":
+        console.log("hello")
+        var sorted_time_arr = slottime.filter((item) => {
+          if (item.time > 16 && item.time <= 19) {
+            return true;
+          }
+        })
+        setTimearr(sorted_time_arr);
+        break;
+
+      case "night":
+        console.log("hello")
+        var sorted_time_arr = slottime.filter((item) => {
+          if (item.time >19) {
+            return true;
+          }
+        })
+        setTimearr(sorted_time_arr);
+        break;
+      default:
+        break;
     }
-     else if(e.target.value==="morning") {
-        let sorted_time_arr = slottime.filter(item=>{
-          if(item>6 && item <12){
-            return item
-          }
-        });
-     
-        setTimearr(sorted_time_arr)
-      }
-     else if(e.target.value==="afternoon"){
-        let sorted_time_arr =slottime.filter(item=>{
-          if(item.time>11 && item.time<=16){
-            return item
-          }
-        });
-        setTimearr(sorted_time_arr)
-     }
-
-     else if(e.target.value==="evening"){
-      let sorted_time_arr = slottime.filter(item=>{
-        if(item.time>16 && item.time <=19){
-          return item
-        }
-      });
-      setTimearr(sorted_time_arr)
-   }
-   else if(e.target.value==="night"){
-    let sorted_time_arr = slottime.filter(item=>{
-      if(item.time>19 && item.time <22){
-        return item
-      }
-    });
-    setTimearr(sorted_time_arr)
- }
-   }
+  };
 
   useEffect(() => {
     getData();
-    slotFetching()
+    slotFetching();
   }, []);
 
   //---------getting single movie data-------------//
@@ -63,12 +71,13 @@ export const Slotbooking = () => {
     let { data } = await axios.get(`http://localhost:5000/movies/${id}`);
     setMovie(data);
   };
-    //-----------fetching the slot--------------//
-    const slotFetching = async()=>{
-      let {data} = await axios.get("http://localhost:5000/slotprice");
-      let slot_data = data.filter((item)=>item.movie==id);
-      setSlottime(slot_data[0].slot)
-    }
+  //-----------fetching the slot--------------//
+  const slotFetching = async () => {
+    let { data } = await axios.get("http://localhost:5000/slotprice");
+    let slot_data = data.filter((item) => item.movie == id);
+    setSlottime(slot_data[0].slot);
+    setTimearr(slot_data[0].slot)
+  };
   return (
     <div className="container-fluid">
       {movie.map((item) => (
@@ -103,7 +112,7 @@ export const Slotbooking = () => {
         </div>
         <div className="col-md-8 text-end">
           <select>
-          <option>Filter By Price</option>
+            <option>Filter By Price</option>
             <option>Hindi 2D</option>
             <option>English 3D</option>
           </select>
@@ -115,10 +124,11 @@ export const Slotbooking = () => {
             <option>Above Rs 350</option>
           </select>
           <select onChange={handleSortbyTime}>
-            <option value="all">Filter by Timings</option>
+            <option>Filter by Timings</option>
+            <option value="all">All Available</option>
             <option value="morning">Morning 12.00-11.59am</option>
             <option value="afternoon">Afternoon 12.00-3.59pm</option>
-            <option value="evening">Evening 4.00-6.59pm</option> 
+            <option value="evening">Evening 4.00-6.59pm</option>
             <option value="night">Night7.00-11.59pm</option>
           </select>
         </div>
@@ -152,7 +162,7 @@ export const Slotbooking = () => {
         </div>
         <hr className="mt-2" />
       </div>
-      {[1,2,2].map((rows) => (
+      {[1, 2, 2].map((rows) => (
         <div className="row box-4 me-2">
           <div className="col-4">
             <img src={"blankheart.png"} alt="" />
@@ -165,7 +175,7 @@ export const Slotbooking = () => {
             </div>
           </div>
           <div className="col-8">
-            {timearr.length>0?timearr:slottime.map((item) => (
+            {timearr.map((item) => (
               //    <button className="btn  m-3 slot-time" onClick={handleCount}>{time}AM</button>
               <button
                 type="button"
@@ -173,7 +183,7 @@ export const Slotbooking = () => {
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
-                {item.time < 10?`0${item.time}`:item.time}
+                {item.time < 10 ? `0${item.time}` : item.time}
               </button>
             ))}
             <div className=" cancellation-avilabe-div">
@@ -210,7 +220,7 @@ export const Slotbooking = () => {
         <div class="modal-dialog">
           <div class="modal-content">
             {" "}
-            <Selectseat/>
+            <Selectseat />
           </div>
         </div>
       </div>

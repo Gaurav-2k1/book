@@ -41,7 +41,7 @@ export function MoviePage() {
   }, [])
 
  const handleSort = (lang)=>{
-  axios.get("http://localhost:3006/movies")
+  axios.get("http://localhost:5000/movies")
   .then((res)=>{
     var result =   res.data.filter(el=>{
       return el.language == lang;
@@ -84,7 +84,7 @@ export function MoviePage() {
 
   function getData(){
     console.log("hi")
-    axios.get("http://localhost:3006/movies")
+    axios.get("http://localhost:5000/movies")
     .then((res)=>{
       console.log(res.data);
     setData(res.data)
@@ -170,9 +170,9 @@ export function MoviePage() {
                 <img className="imagePara" src={el.img_url}></img>
                 <p className="titlePara">{el.title}</p>
                 <p className="certificatePara">{el.certificate}</p>
-                <p className="certificatePara">{el.language}</p>
+                <p className="certificatePara" style={{fontSize:"12px"}}><span className="me-1">{el.language}</span></p>
 
-                
+         
               </div>)
             }
             
