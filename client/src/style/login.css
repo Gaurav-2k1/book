@@ -1,0 +1,38 @@
+.sub-pop{
+height: 42px;
+left: 179px;
+top: 17px;
+text-align: center;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 42px;
+color: #000000;
+}
+
+
+.google-btn{
+    text-align: center;
+    align-items: center; 
+    border: 1px solid gray;
+    border-radius: 8px;
+    
+    margin: auto;
+    padding-right:20px;
+    padding-left: 20px;
+}
+
+.google-icon-wrapper{    
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    text-align: center;
+    
+}
+
+.text{
+    padding-top: 20px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
