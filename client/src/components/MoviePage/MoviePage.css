@@ -40,6 +40,7 @@
 .displayMovies {
   width: 100%;
   margin: auto;
+  margin-top: 2%;
   padding: 2%;
   /* border: 1px solid black; */
   display: flex;
@@ -63,26 +64,26 @@
   border-radius: 4px;
   text-align: center;
 }
-
+.rightMovies {
+  /* border: 1px solid green;  */
+ padding: 0 3% 0 3%;
+ font-family: Roboto;
+ font-style: normal;
+ font-weight: 900;
+ font-size: 24px;
+ line-height: 28px;
+ color: #000000;
+ width: 65%;
+}
 .rightMoviesComponent {
-  width: 99%;
+  width: 100%;
   border: 1px solid red;
   display: flex;
   padding: 2%;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content:space-between;
 }
-.rightMovies {
-  /* border: 1px solid green; */
-  padding: 0 3% 0 3%;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 28px;
-  color: #000000;
-  width: 60%;
-}
+
 .rightMoviesBelow {
   width: 70%;
   display: flex;
@@ -91,7 +92,7 @@
   align-items: center;
   padding-top: 3%;
   padding-bottom: 3%;
-  /* border: 1px solid violet; */
+   /* border: 1px solid violet;  */
 }
 .moviesNName {
   
@@ -125,12 +126,9 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  /* identical to box height, or 133% */
-
+  
   display: flex;
   align-items: center;
-
-  /* Primary/Ruby Pink */
 
   color: #e94362;
 }
@@ -176,7 +174,7 @@
 
 .gridContainer {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 24% 24% 24% 24%;
   grid-gap: 3%;
   margin-top: 2%;
 }
@@ -213,10 +211,28 @@
 .gridItem p{
   margin: 0px;
 }
+
+.browsse{
+  width: 100%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2%;
+  margin-top: 4%;
+  text-align: center;
+  border: 2px solid #E94362;
+  border-radius: 5px;
+  color: #E94362;
+  background-color: #F5F5F5;
+
+}
 @media (max-width: 500px) {
   .displayMovies {
     width: 100%;
     margin: auto;
+    margin-top: 2%;
     padding: 2%;
     /* border: 1px solid black; */
     display: flex;
