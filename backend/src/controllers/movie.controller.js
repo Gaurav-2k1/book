@@ -9,6 +9,12 @@ router.get("/",async (req,res)=>{
 
 })
 
+router.get("/shikha",async (req,res)=>{
+    
+   console.log("Show")
+
+})
+
 router.post("/create",async(req,res)=>{
 
     const movie = await Movie.create(req.body);

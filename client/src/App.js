@@ -8,6 +8,7 @@ import Footer from './components/footer/Footer';
 import { Terms } from './components/Seat/Terms';
 import { Selectseat } from './components/Seat/Selectseat';
 import { Slotbooking } from './components/Slotbooking.jsx/Slotbooking';
+import { Seating } from './components/SeatBook/Seating';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/book"><Book/></Route>
         <Route path="/terms"> <Terms/> <Selectseat/></Route>
         <Route path = "/slot"><Slotbooking/></Route>
+        <Route path = "/seating"><Seating/></Route>
     </Switch>
     </div>
   );
