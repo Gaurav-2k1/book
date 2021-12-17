@@ -11,9 +11,14 @@ router.get("/",async (req,res)=>{
 
 router.post("/create",async(req,res)=>{
 
-    const body= req.body;
-    console.log(body);
+    const movie = await Movie.create(req.body);
+    return res.status(200).send(movie)
 
 });
+
+router.patch("/:id/update",async(req,res)=>{
+    const movie = await Movie.findByIdAndUpdate(req.params.id,req.body,{new:true});
+    return res.status(200).send(movie)
+})
 
 module.exports=router;

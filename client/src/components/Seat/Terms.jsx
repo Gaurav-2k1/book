@@ -13,7 +13,7 @@ export const Terms = ()=>{
                  <li> As per Cinema policy, Tickets are mandatory for children above 3yrs age.</li>
                  <li> Cinema staff may check your vaccination status on Aarogya Setu App/Vaccine certificate before allowing entry inside the premises</li>
                  <li>For safety purposes, wearing mask is mandatory..</li>
-                 <li>Patrons with fever (body temperature > 99.2 F) or other symptoms like : cough etc. will not be allowed entry and are requested to stay at home.</li>
+                 <li>Patrons with fever (body temperature {`>`} 99.2 F) or other symptoms like : cough etc. will not be allowed entry and are requested to stay at home.</li>
                  <li>Ticket is compulsory for children of 3 years & above.</li>
                  <li>Incase the ticket is lost or misplaced, duplicate ticket will not be issued.</li>
                  <li>Outside food & beverages are not allowed inside the cinema premises.</li>

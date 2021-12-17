@@ -10,3 +10,7 @@ const connect = ()=>{
 
 
 module.exports=connect;
+
+
+
+// mongodb+srv://akhilkamsala:akhil123@bookmyshowclonecluster.uxxgb.mongodb.net/bookDB?retryWrites=true&w=majority

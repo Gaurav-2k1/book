@@ -6,6 +6,49 @@ import { Terms } from "../Seat/Terms";
 
 export const Slotbooking = () => {
   const [movie, setMovie] = useState([]);
+  const [price,setPrice] = useState("");
+  const [language,setLangugae] = useState("");
+  const [timearr,setTimearr] = useState([]);
+  let arr = [6,7,8,9,10,11,12,13,14,18,20]
+
+  const handleSortbyTime = (e)=>{
+  
+      if(e.target.value==="morning") {
+        let sorted_time_arr = arr.filter(item=>{
+          if(item>6 && item <12){
+            return item
+          }
+        });
+     
+        setTimearr(sorted_time_arr)
+      }
+     else if(e.target.value==="afternoon"){
+        let sorted_time_arr = arr.filter(item=>{
+          if(item>11 && item <=16){
+            return item
+          }
+        });
+        setTimearr(sorted_time_arr)
+     }
+
+     else if(e.target.value==="evening"){
+      let sorted_time_arr = arr.filter(item=>{
+        if(item>16 && item <=19){
+          return item
+        }
+      });
+      setTimearr(sorted_time_arr)
+   }
+   else if(e.target.value==="night"){
+    let sorted_time_arr = arr.filter(item=>{
+      if(item>19 && item <22){
+        return item
+      }
+    });
+    setTimearr(sorted_time_arr)
+ }
+  }
+
   useEffect(() => {
     getData();
   }, []);
@@ -57,12 +100,12 @@ export const Slotbooking = () => {
             <option>Rs 301-350</option>
             <option>Above Rs 350</option>
           </select>
-          <select>
-            <option>Filter Show Timings</option>
-            <option>Morning 12.00-11.59am</option>
-            <option>Afternoon 12.00-3.59pm</option>
-            <option>Evening 4.00-6.59pm</option> 
-            <option>Night7.00-11.59pm</option>
+          <select onChange={handleSortbyTime}>
+            <option>Filter by Timings</option>
+            <option value="morning">Morning 12.00-11.59am</option>
+            <option value="afternoon">Afternoon 12.00-3.59pm</option>
+            <option value="evening">Evening 4.00-6.59pm</option> 
+            <option value="night">Night7.00-11.59pm</option>
           </select>
         </div>
       </div>
@@ -95,7 +138,7 @@ export const Slotbooking = () => {
         </div>
         <hr className="mt-2" />
       </div>
-      {[1, 2, 3, 4].map((rows) => (
+      {[1,2,2].map((rows) => (
         <div className="row box-4 me-2">
           <div className="col-4">
             <img src={"blankheart.png"} alt="" />
@@ -108,7 +151,7 @@ export const Slotbooking = () => {
             </div>
           </div>
           <div className="col-8">
-            {[10.0, 11.0, 12.0, 3.0].map((time) => (
+            {timearr.map((item) => (
               //    <button className="btn  m-3 slot-time" onClick={handleCount}>{time}AM</button>
               <button
                 type="button"
@@ -116,7 +159,7 @@ export const Slotbooking = () => {
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
-                {time}AM
+                {item}AM
               </button>
             ))}
             <div className=" cancellation-avilabe-div">
