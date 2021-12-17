@@ -6,14 +6,15 @@ const movieSchema = new mongoose.Schema({
     img_url:{type:String},
     likes:{type:String},
     ratings:{type:String},
-    view:{type:String},
-    language:{type:String},
+    view:[{type:String}],
+    language:[{type:String}],
     duration:{type:String},
     genre:[{type:String}],
     certificate:{type:String},
     release:{type:String},
     bg_img:{type:String},
-    location:{type:String}
+    cast:[{type:Object}],
+    crew:[{type:Object}]
 },{
     versionKey:false,
     timestamps:true

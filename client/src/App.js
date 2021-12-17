@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Footer from './components/footer/Footer';
 import { Terms } from './components/Seat/Terms';
 import { Selectseat } from './components/Seat/Selectseat';
+import { Slotbooking } from './components/Slotbooking.jsx/Slotbooking';
 
 
 
@@ -19,8 +20,8 @@ function App() {
         <Route path="/movie/:id"><Book/></Route>
         <Route path="/book"><Book/></Route>
         <Route path="/terms"> <Terms/> <Selectseat/></Route>
+        <Route path = "/slot"><Slotbooking/></Route>
     </Switch>
-   
     </div>
   );
 }
