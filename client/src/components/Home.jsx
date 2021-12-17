@@ -26,6 +26,7 @@ export default function()
     const [showModal,setShowModal]=useState(false);
     let {city,handleChange}=useContext(AppContext);
     
+    
     console.log(city,handleChange)
     
     const settings = {
@@ -81,7 +82,8 @@ export default function()
             
 
 
-            <Modal size="xl" show={showModal} onHide={handleClose} style={{}}>
+            <Modal size="xl" show={showModal} onHide={handleClose} style={{}}       aria-labelledby="contained-modal-title-vcenter"
+centered>
                
                 <Modal.Body>
                     <LocationPicker handleClose={(handleClose)} />

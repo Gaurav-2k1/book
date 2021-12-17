@@ -54,7 +54,7 @@ export function MoviePage() {
  }
  const handleSortGenre = (gen)=>{
   var genreArr = [];
-  axios.get("http://localhost:3006/movies")
+  axios.get("http://localhost:5000/movies")
   .then((res)=>{
     var result =   res.data.filter(el=>{
       return (el.genre[0] == gen && el.language == languageState ||el.genre[1] == gen && el.language == languageState ||el.genre[2] == gen && el.language == languageState  );
@@ -70,7 +70,7 @@ export function MoviePage() {
  }
 
  const handleSortFormat = (form)=>{
-  axios.get("http://localhost:3006/movies")
+  axios.get("http://localhost:5000/movies")
   .then((res)=>{
     var result =   res.data.filter(el=>{
       return (el.genre[0] == genreState && el.language == languageState && el.view == form ||el.genre[1] == genreState && el.language == languageState && el.view == form ||el.genre[2] == genreState && el.language == languageState && el.view == form );
