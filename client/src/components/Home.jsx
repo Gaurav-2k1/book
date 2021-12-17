@@ -121,7 +121,7 @@ export default function()
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
+                    return  <Link to={`/movie/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 
@@ -162,7 +162,7 @@ export default function()
                     <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
+                    return  <Link to={`/movie/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 
@@ -186,7 +186,7 @@ export default function()
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
+                    return  <Link to={`/movie/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 
@@ -208,7 +208,7 @@ export default function()
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
+                    return  <Link to={`/movie/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 
@@ -230,7 +230,7 @@ export default function()
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
+                    return  <Link to={`/movie/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 
@@ -252,7 +252,7 @@ export default function()
             <div className="container-fluid movies-list">
                 {movies.map((el,index)=>{
                     
-                    return  <Link to={`/moviepage/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
+                    return  <Link to={`/movie/${el._id}`}><MovieCard title={el.title} image={el.img_url} tag={el.genre[0]} headingColor="white" subHeadColor="white" /></Link>
                     
                 })}
                 

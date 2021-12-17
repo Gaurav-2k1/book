@@ -16,6 +16,7 @@ function App() {
       <Switch>
         <Route path="/" exact><Home/></Route>
         <Route path="/moviepage"><MoviePage/></Route>
+        <Route path="/movie/:id"><Book/></Route>
         <Route path="/book"><Book/></Route>
         <Route path="/terms"> <Terms/> <Selectseat/></Route>
     </Switch>
