@@ -24,4 +24,11 @@ app.use("/users",userController);
 app.use("/movies",movieController);
 app.use("/book",bookController);
 app.use("/slotprice",slotPriceController)
+const theaterController = require('./controllers/theater.controller');
+app.use("/users",userController);
+app.use("/movies",movieController);
+app.use("/book",bookController);
+app.use("/theater",theaterController);
+
+
 module.exports=app;
