@@ -259,8 +259,6 @@ centered>
                 })}
                 
             </div>
-
-
             <PrivacyNote/>
             <Footer/>
     </>)
