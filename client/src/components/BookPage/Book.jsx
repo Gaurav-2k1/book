@@ -6,21 +6,34 @@ import { Bookcrew } from './Bookcrew';
 import {nanoid} from 'nanoid'
 import { Slicker } from './Slicker';
 import { Booklike } from './Booklike';
-
+import { useParams } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 export const Book = ()=>{
    const [movies,setMovies] = useState([]);
-   const arr = [{text:"#Awesome story",id:4490},{text:"#Great Acting",id:5580},{text:"#Wow Music",id:"8698"},{text:"#Must Watch",id:"6682"}]
+   const [allmovies,setAllmovies] = useState([]);
+   const history = useHistory();
+   const arr = [{text:"#Awesome story",id:4490},{text:"#Great Acting",id:5580},{text:"#Wow Music",id:"8698"},{text:"#Must Watch",id:"6682"}];
+   
+   const {id} = useParams()
 
    useEffect(()=>{
        getData();
-   },[])
+       getAllData();
+    
+   },[id])
 
 const getData = async()=>{
-    let {data}  = await axios.get("http://localhost:3004/movies");
+    let {data}  = await axios.get(`http://localhost:5000/movies/${id}`);
    setMovies(data)
+  
+}
+console.log("movie",movies)
+const getAllData = async()=>{
+    let {data}  = await axios.get(`http://localhost:5000/movies`);
+    setAllmovies(data)
 }
 
-// console.log(movies)
+
     return(
         <div className="book-cont">
    {
@@ -38,10 +51,12 @@ const getData = async()=>{
                           </div>
                      <div className='rate-now-btn'><button className='btn'>Rate now</button></div>
                     </div>
-                    <div><button className='btn bg-white mt-2 mb-2'>{item.view}</button></div>
-                    <div><button className='btn bg-white'>{item.language}</button></div>
+                    <div><button className='btn bg-white mt-2 mb-2'>{item.view.map((vw)=>(<span className='me-1'>{vw}</span>))}</button></div>
+                    <div><button className='btn bg-white'>{item.language.map((lang)=>(<span className='me-1'>{lang}</span>))}</button></div>
                     <div className='text-white movie-duration mt-2'><span className='m-2'>{item.duration}</span>{item.genre.map((action)=>(<span className='m-1'>{action},</span>))}<span className='m-2'>{item.certificate}</span>{item.release}<span></span></div>
-                    <button className='btn book-btn mt-3'>Book Tickets</button>
+                    <button className='btn book-btn mt-3'
+                    onClick={()=>history.push("/slot")}
+                    >Book Tickets</button>
                 </div>
                 <div>
                 </div>
@@ -89,7 +104,7 @@ const getData = async()=>{
        <Slicker/>
     {/* --------You might also like----------- */}
       <div>
-       <Booklike />
+       <Booklike allmovies={allmovies}/>
       </div>
         </div>
        
