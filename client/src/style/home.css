@@ -6,4 +6,48 @@
     height: 550px;
     overflow-x:scroll;
     white-space: nowrap;    
+    max-width: 98%;
+}
+
+.heading-4{
+    font-weight: 900;
+    color:#000000;
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+.heading-3{
+    font-size: 14px;
+    color: tomato;
+    margin-right: 20px;
+}
+
+
+.padd{
+    padding:5px;
+}
+.flex{
+    display: flex;
+    
+}
+.padded-img{
+    width: 98%;   
+    object-fit: cover;
+    margin-left: 1%;
+    
+}
+
+.premier-container{
+    background: rgb(43, 49, 72);
+    height: 708px;
+    width: 100%;
+}
+
+.premier-inner{
+    border: 1px solid whitesmoke;
+    width: 98%;
+    height: 100px;
+}
+.premier-inner MovieCard{
+    color: white;
 }

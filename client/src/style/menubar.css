@@ -1,0 +1,44 @@
+.menubar{
+    display: flex;
+    background: rgb(43, 49, 72);
+    width: 100%;
+    height: 40px;
+    top:64.29%;
+    align-content: space-between;
+    
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.menubar-item{
+    color: #999999;
+    padding: 10px;
+}
+
+.menubar-item:hover{
+    color:white;
+    
+}
+.flex{
+    display: flex;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+sup{
+    color: tomato;
+}
+
+sup:hover{
+    color: red;
+}
