@@ -9,6 +9,13 @@
     max-width: 98%;
 }
 
+a{
+    text-decoration: none;
+}
+.movies-list::-webkit-scrollbar {
+    display: none;
+  }
+
 .heading-4{
     font-weight: 900;
     color:#000000;
@@ -50,4 +57,19 @@
 }
 .premier-inner MovieCard{
     color: white;
+}
+
+.image-flex{
+
+    display: flex;
+    flex-direction: row;
+    gap:60px;
+   
+    
+}
+.image-flex img {
+
+    width: 242px;
+    height: 239px;
+    border-radius: 8px;
 }

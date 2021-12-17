@@ -7,7 +7,7 @@ export default function(){
             <div className="container-fluid footer">
 
             <div className="flexed">
-                <img className="img" src="vector.png"/>
+                <img className="img" src={`${process.env.PUBLIC_URL}/vector.png`}/>
                 <p className="footer-heading">List Your Show</p>
                 <p className="footer-sub">Got a show, event, activity or a great experience? Partner with us & get listed on BookMyShow</p>
                 <div className="grow"></div>
@@ -17,13 +17,13 @@ export default function(){
 
             <div className="footer-image-grid flexed">
                     <div className='grow'>
-                        <img className='fluid-img' src='customer-care.png'/>
+                        <img className='fluid-img' src={`${process.env.PUBLIC_URL}/customer-care.png`}/>
                     </div>
                     <div className='grow'>
-                        <img className='fluid-img' src='resend.png'/>
+                        <img className='fluid-img' src={`${process.env.PUBLIC_URL}/resend.png`}/>
                     </div>
                     <div className='grow'>
-                        <img className='fluid-img' src='newsletter.png'/>
+                        <img className='fluid-img' src={`${process.env.PUBLIC_URL}/newsletter.png`}/>
                     </div>
                     
                     
@@ -542,19 +542,19 @@ Drishya 2</p>
         <div className="line-holder flexed">
 
             <div className="line"></div>
-            <div className='grow'><img src="logo.png"/></div>
+            <div className='grow'><img src={`${process.env.PUBLIC_URL}/logo.png`}/></div>
             <div className="line"></div>
 
         </div>    
 
         <div className="social-container">
             <div className="social">
-                <img className='img-fluid' src="facebook.png"/>
-                <img className='img-fluid' src="twitter.png"/>
-                <img className='img-fluid' src="insta.png"/>
-                <img className='img-fluid' src="youtube.png"/>
-                <img className='img-fluid' src="pin.png"/>
-                <img className='img-fluid' src="linkedin.png"/>
+                <img className='img-fluid' src={`${process.env.PUBLIC_URL}/facebook.png`}/>
+                <img className='img-fluid' src={`${process.env.PUBLIC_URL}/twitter.png`}/>
+                <img className='img-fluid' src={`${process.env.PUBLIC_URL}/insta.png`}/>
+                <img className='img-fluid' src={`${process.env.PUBLIC_URL}/youtube.png`}/>
+                <img className='img-fluid' src={`${process.env.PUBLIC_URL}/pin.png`}/>
+                <img className='img-fluid' src={`${process.env.PUBLIC_URL}/linkedin.png`}/>
             </div>
         </div>
 

@@ -1,0 +1,173 @@
+.booking-slot-heading-cont {
+  height: 160px;
+  background-color: #333545;
+}
+.booking-slot-heading-detail {
+  margin-top: 80px;
+}
+
+.booking-slot-title {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 42px;
+}
+.booking-slot-title + div {
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0em;
+  text-align: center;
+  height: 18px;
+  border: 0.5px solid white;
+  border-radius: 8px;
+  padding: 0.8px;
+}
+.role-img-and-name {
+  margin-top: 80px;
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #f5f5f5;
+}
+.role-img-and-name > img {
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+}
+
+.slot-genre {
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  height: 18px;
+  border-radius: 10px;
+  border: 1px solid #999999;
+  color: #999999;
+  padding: 0 10px;
+}
+
+.slot-duration {
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.slot-duration + div {
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.mobile-ticket-avail {
+  background-color: #f9ecc9;
+  height: 40px;
+  width: 98%;
+  margin: auto;
+  font-family: Roboto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: left;
+  color: #232323;
+}
+.close-sign {
+  font-size: 18px;
+  color: #999999;
+}
+
+.slot-box-3 {
+  font-family: Roboto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: left;
+}
+.dot-img {
+  width: 11px;
+  height: 11px;
+}
+.box-2 select {
+  height: 64px;
+  width: 177px;
+  padding: 20px, 98px, 20px, 18px;
+  text-align: center;
+  border: none;
+  font-size: 15px;
+  color:rgb(49, 48, 48)
+}
+.box-2 select option{
+  font-size:12px;
+}
+.box-2 select:hover {
+  border-bottom: 2px solid #e94362;
+}
+.slot-date-btn:hover{
+  background-color: #E94362;
+  border:0px;
+}
+.theatre-name {
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  text-align: left;
+  color: #232323;
+}
+.m-ticket {
+  color: #00b240;
+  font-family: Roboto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  margin: 0 5px;
+}
+.f-b + span {
+  font-family: Roboto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  margin: 0 5px;
+}
+.cancellation-avilabe-div {
+  font-family: Roboto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+}
+.cancellation-avilabe-div > img {
+  margin-left: 20px;
+  margin-right: 5px;
+}
+.cancellation-avilabe-div>img{
+    width: 8px;
+    height: 8px;
+}
+.slot-time {
+  color: #00b240;
+  border: 1px solid #b8b4b4;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  width:107px;
+}
+.slot-time:hover{
+    color:#E94362
+}
