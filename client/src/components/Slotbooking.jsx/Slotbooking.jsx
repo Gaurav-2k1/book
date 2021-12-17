@@ -1,20 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "../../style/slotbooking.css";
 import { Selectseat } from "../Seat/Selectseat";
 import { Terms } from "../Seat/Terms";
 
 export const Slotbooking = () => {
   const [movie, setMovie] = useState([]);
-  const [price,setPrice] = useState("");
-  const [language,setLangugae] = useState("");
   const [timearr,setTimearr] = useState([]);
-  let arr = [6,7,8,9,10,11,12,13,14,18,20]
+  const [slottime,setSlottime] = useState([]);
+  const {id} = useParams();
+ 
 
-  const handleSortbyTime = (e)=>{
-  
-      if(e.target.value==="morning") {
-        let sorted_time_arr = arr.filter(item=>{
+   const handleSortbyTime = (e)=>{
+     console.log(slottime)
+    if(e.target.value==="all"){
+      setTimearr(slottime)
+    }
+     else if(e.target.value==="morning") {
+        let sorted_time_arr = slottime.filter(item=>{
           if(item>6 && item <12){
             return item
           }
@@ -23,8 +27,8 @@ export const Slotbooking = () => {
         setTimearr(sorted_time_arr)
       }
      else if(e.target.value==="afternoon"){
-        let sorted_time_arr = arr.filter(item=>{
-          if(item>11 && item <=16){
+        let sorted_time_arr =slottime.filter(item=>{
+          if(item.time>11 && item.time<=16){
             return item
           }
         });
@@ -32,30 +36,39 @@ export const Slotbooking = () => {
      }
 
      else if(e.target.value==="evening"){
-      let sorted_time_arr = arr.filter(item=>{
-        if(item>16 && item <=19){
+      let sorted_time_arr = slottime.filter(item=>{
+        if(item.time>16 && item.time <=19){
           return item
         }
       });
       setTimearr(sorted_time_arr)
    }
    else if(e.target.value==="night"){
-    let sorted_time_arr = arr.filter(item=>{
-      if(item>19 && item <22){
+    let sorted_time_arr = slottime.filter(item=>{
+      if(item.time>19 && item.time <22){
         return item
       }
     });
     setTimearr(sorted_time_arr)
  }
-  }
+   }
 
   useEffect(() => {
     getData();
+    slotFetching()
   }, []);
+
+  //---------getting single movie data-------------//
   const getData = async () => {
-    let { data } = await axios.get("http://localhost:3004/movies");
+    let { data } = await axios.get(`http://localhost:5000/movies/${id}`);
     setMovie(data);
   };
+    //-----------fetching the slot--------------//
+    const slotFetching = async()=>{
+      let {data} = await axios.get("http://localhost:5000/slotprice");
+      let slot_data = data.filter((item)=>item.movie==id);
+      setSlottime(slot_data[0].slot)
+    }
   return (
     <div className="container-fluid">
       {movie.map((item) => (
@@ -69,8 +82,8 @@ export const Slotbooking = () => {
             <div className="d-inline m-1 slot-duration">{item.duration}</div>
             <div className="d-inline m-1">{item.release}</div>
           </div>
-          <div className="col-1"></div>
-          <div className="col-5">
+          <div className="col-3"></div>
+          <div className="col-3">
             <div className="row">
               {item.cast.map((role) => (
                 <div className="col text-center role-img-and-name">
@@ -84,12 +97,13 @@ export const Slotbooking = () => {
       ))}
       <div className="row box-2 me-3 ml-3">
         <div className="col-md-4">
-          {[1, 2, 3, 4, 5].map((item) => (
+          {[20, 21, 22, 23, 24].map((item) => (
             <button className="btn slot-date-btn">{`${item}`}</button>
           ))}
         </div>
         <div className="col-md-8 text-end">
           <select>
+          <option>Filter By Price</option>
             <option>Hindi 2D</option>
             <option>English 3D</option>
           </select>
@@ -101,7 +115,7 @@ export const Slotbooking = () => {
             <option>Above Rs 350</option>
           </select>
           <select onChange={handleSortbyTime}>
-            <option>Filter by Timings</option>
+            <option value="all">Filter by Timings</option>
             <option value="morning">Morning 12.00-11.59am</option>
             <option value="afternoon">Afternoon 12.00-3.59pm</option>
             <option value="evening">Evening 4.00-6.59pm</option> 
@@ -151,7 +165,7 @@ export const Slotbooking = () => {
             </div>
           </div>
           <div className="col-8">
-            {timearr.map((item) => (
+            {timearr.length>0?timearr:slottime.map((item) => (
               //    <button className="btn  m-3 slot-time" onClick={handleCount}>{time}AM</button>
               <button
                 type="button"
@@ -159,7 +173,7 @@ export const Slotbooking = () => {
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
-                {item}AM
+                {item.time < 10?`0${item.time}`:item.time}
               </button>
             ))}
             <div className=" cancellation-avilabe-div">

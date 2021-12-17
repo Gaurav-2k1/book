@@ -20,7 +20,7 @@ function App() {
         <Route path="/movie/:id"><Book/></Route>
         <Route path="/book"><Book/></Route>
         <Route path="/terms"> <Terms/> <Selectseat/></Route>
-        <Route path = "/slot"><Slotbooking/></Route>
+        <Route path = "/slot/:id"><Slotbooking/></Route>
     </Switch>
     </div>
   );
