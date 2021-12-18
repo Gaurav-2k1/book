@@ -16,9 +16,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 import {Link }from 'react-router-dom';
 
+export default function()
+{
 
-<<<<<<< HEAD
-=======
+    const [movies,setMovies]=useState([]);
+
     const imagesCard = ["https://in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MTcwKyBFdmVudHM%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300/workshops-collection-202007231330.png","https://in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MTAgRXZlbnRz,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300/fitness-collection-2020081150.png","https://in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-NDArIEV2ZW50cw%3D%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300/kids-collection-202007220710.png","https://in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MTUwKyBFdmVudHM%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300/comedy-shows-collection-202007220710.png","https://in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MzUrIEV2ZW50cw%3D%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300/music-shows-collection-202007220710.png"];
     
     const [showModal,setShowModal]=useState(false);
@@ -67,20 +69,13 @@ import {Link }from 'react-router-dom';
             });
             //console.log(data.data);
         //setMovies(data.data);
->>>>>>> 7a3e155b8d3adb280d9faadec822a72b7ce16b2f
 
- const Home =function()
-{
 
-    const [movies,setMovies]=useState([]);
 
-<<<<<<< HEAD
-=======
     },[]);
 
 
     
->>>>>>> 7a3e155b8d3adb280d9faadec822a72b7ce16b2f
     return(<>
 
 
@@ -100,9 +95,6 @@ centered>
 
             <Navbar  toggle={toggleLocationPickup}/>
             <Menubar/>
-<<<<<<< HEAD
- 
-=======
 
 
             <Slider {...settings} style={{maxWidth:'100%',maxHeight:'324px',marginRight:'20px',marginLeft:'20px',marginTop:'20px'}}>
@@ -118,7 +110,6 @@ centered>
           
         </Slider>
 
->>>>>>> 7a3e155b8d3adb280d9faadec822a72b7ce16b2f
             <div className="container-fluid padd">
                 <div className="left">
                     <p className="heading-4">Recommended Movies</p>
@@ -141,7 +132,7 @@ centered>
             <br/>
    
 
-            <img alt="" className="img-fluid padded-img" src="https://in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/lead-in-v3-collection-202102040828.png"/>
+            <img className="img-fluid padded-img" src="https://in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/lead-in-v3-collection-202102040828.png"/>
 
             <br/>
         
@@ -165,7 +156,7 @@ centered>
 
             <div className="premier-container">
                     
-                    <img alt="" className="img-fluid padded-img " src="https://in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/premiere-rupay-banner-web-collection-202104230555.png"/>
+                    <img className="img-fluid padded-img " src="https://in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/premiere-rupay-banner-web-collection-202104230555.png"/>
                     
                     <br/>
                     <br/>
@@ -275,6 +266,3 @@ centered>
     </>)
 
 }
-
-
-export default Home;
