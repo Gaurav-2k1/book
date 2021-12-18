@@ -27,10 +27,6 @@ router.post("/create",async(req,res)=>{
 
     res.status(201).send(createBooking);
 
-
-
-
-
 })
 
 router.patch("/create/:id",async(req,res)=>{

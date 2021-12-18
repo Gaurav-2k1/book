@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 const bookSchema = new mongoose.Schema({
     email:{type:String},
+    name:{type:String},
     uid:{type:String,ref:'user'},
     seats:[{type:String}],
     howmanySeats:{type:Number},
@@ -14,7 +15,8 @@ const bookSchema = new mongoose.Schema({
     ticketType:{type:String},
     dateOfBooking:{type:String},
     timeOfShow:{type:String},
-    orderStatus:{type:String}
+    orderStatus:{type:String},
+    movieid:{type:mongoose.Schema.Types.ObjectId,ref:'movie'}
 },{
     versionKey:false,
     timestamps:true
