@@ -1,5 +1,5 @@
 
-![Logo](https://github.com/sumit-krk/name/blob/master/Capture_1.PNG?raw=true)
+![Logo](https://github.com/sumit-krk/name/blob/master/Book_my_shoe.PNG?raw=true)
 
 
 # bookmyshow clone
