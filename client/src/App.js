@@ -15,6 +15,7 @@ import Summary from './components/Summary/Summary'
 import Navbar from './components/navbar/Navbar';
 import Menubar from './components/menubar/Menubar';
 import Footer from './components/footer/Footer';
+import Login from './components/Login/Login';
 
 
 
@@ -46,7 +47,8 @@ function App() {
         <Route path="/terms"> <Terms/> <Selectseat/></Route>
         <Route path = "/slot/:id/:bookingId"><Slotbooking/></Route>
         <Route path = "/seating/:id"><Seating/></Route>        
-        <Route path = "/summary/:id"><Summary/></Route>        
+        <Route path = "/summary/:id"><Summary/></Route>       
+        
     </Switch>
     
     </div>

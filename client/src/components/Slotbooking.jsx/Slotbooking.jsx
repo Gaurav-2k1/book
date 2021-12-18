@@ -16,8 +16,13 @@ export const Slotbooking = () => {
   const [selectedTheater,setSelectedTheater]=useState("");
   const [filtered,setFiltered]=useState([]);
   const [selectedSeats,setSelectedSeats]=useState(0);
+  var serverData=[];
 
 
+
+  useEffect(()=>{
+    getTheaters(id);
+  },[]);
 
   async function updateBooking(seats)
   {
@@ -40,37 +45,61 @@ export const Slotbooking = () => {
 
       let response = await axios.get("http://localhost:5000/theater/getTheaters/"+movieId);
 
-      console.log("movie is playing in theaters",response.data);
-      setPlayingTheaters(response.data);
+      //console.log("movie is playing in theaters",response.data);
+      setPlayingTheaters(response.data);      
 
 
   }
 
   console.log("Current Booking id",bookingId);
  console.log("id",id)
-  const handleSortbyTime = (e) => {
+  const handleSortbyTime = async (e) => {
     // console.log(e.target.value);
+    await getTheaters(id);
     console.log(e.target.value);
     switch (e.target.value) {
       case "all":
-        setTimearr(slottime);
+        
+        await getTheaters(id);
         break;
 
       case "morning":
-        let timingsData=playingTheaters.map((el)=>el.showTimings);
+        await getTheaters(id);
 
-        let formatedData=timingsData.map((el)=>el.map((time)=>time.split(":")[0]).map(Number));
+      
+          let timingsData=playingTheaters.map((obj)=>{
 
-        
-        let filtered=formatedData.map((arr)=>arr.filter((item)=>{
-          if (item> 6 && item < 12) {
+            obj.showTimings.forEach((time,index)=>{
+                
+                
+                 obj.showTimings[index]=Number(time.split(":")[0])
+                 
+                                
+            })
+
+            return obj;
+            
+            
+ 
+        })
+
+
+        setPlayingTheaters(timingsData.filter((obj)=>{
+
+
+            obj.showTimings=obj.showTimings.filter((el)=>{
+              if(el > 9 && el <12)
+                return true;
+            })
+            
+
             return true;
-          }
-        }))
+        }));
+
         
 
-        console.log("Filtered Data",filtered);
-
+      
+         
         /* var sorted_time_arr = slottime.filter((item) => {
           if (item.time > 6 && item.time < 12) {
             return true;
@@ -81,35 +110,55 @@ export const Slotbooking = () => {
 
         break;
 
-      case "afternoon":
-        var sorted_time_arr = slottime.filter((item) => {
-          if (item.time > 12 && item.time < 16) {
-            return true;
-          }
-        })
-        setTimearr(sorted_time_arr);
-        break;
-
+      
       case "evening":
-        console.log("hello")
-        var sorted_time_arr = slottime.filter((item) => {
-          if (item.time > 16 && item.time <= 19) {
-            return true;
-          }
-        })
-        setTimearr(sorted_time_arr);
-        break;
+        
+//       getTheaters(id);
 
-      case "night":
-        console.log("hello")
-        var sorted_time_arr = slottime.filter((item) => {
-          if (item.time >19) {
-            return true;
-          }
+        
+      console.log("Getting ServerData",playingTheaters);        
+        
+
+          let timingsData3=playingTheaters.map((obj)=>{
+
+            obj.showTimings.forEach((time,index)=>{
+                
+
+              console.log("Time",time);
+                if(typeof(time)===String)
+                 obj.showTimings[index]=Number(time.split(":")[0])
+                 
+                 
+                                
+            })
+
+            return obj;
+            
+            
+ 
         })
-        setTimearr(sorted_time_arr);
+
+
+        setPlayingTheaters(timingsData3.filter((obj)=>{
+
+
+            obj.showTimings=obj.showTimings.filter((el)=>{
+              if(el >= 12 && el <=21)
+                return true;
+            })
+            
+
+            return true;
+        }));
+
+         
+        
+
+        
+        
         break;
       default:
+      //  await getTheaters(id);
         break;
     }
   };
@@ -178,7 +227,9 @@ export const Slotbooking = () => {
             <option>Rs 301-350</option>
             <option>Above Rs 350</option>
           </select>
-          <select onChange={handleSortbyTime}>
+          <select onChange={handleSortbyTime} onClick={(e)=>(async ()=>{
+            await getTheaters(id);
+          })}>
             <option>Filter by Timings</option>
             <option value="all">All Available</option>
             <option value="morning">Morning 12.00-11.59am</option>

@@ -32,7 +32,7 @@ signInWithPopup(auth, provider)
 
     console.log(user);
 
-    fetch('http://localhost:5000/users/createUser',{
+    /* fetch('http://localhost:5000/users/createUser',{
       method: 'POST', 
     mode: 'cors', 
     cache: 'no-cache',
@@ -48,11 +48,15 @@ signInWithPopup(auth, provider)
         console.log("Created User",data);
     }).catch((e)=>{
       console.log(e);
-    });
+    }); */
 
     localStorage.setItem('user',JSON.stringify(user));
-
     hide(false);
+
+    window.scroll({top:0,behavior:'smooth'})
+
+
+
     // ...
   }).catch((error) => {
     // Handle Errors here.

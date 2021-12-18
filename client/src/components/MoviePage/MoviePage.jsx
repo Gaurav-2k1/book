@@ -9,7 +9,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./MoviePage.css";
-import {Link} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom';
+import Modal from 'react-bootstrap/Modal';
+import {isLoggedIn} from '../../utils/userUtil';
+import Login from "../Login/Login";
 export function MoviePage() {
   const [language, setLanguage] = useState(false);
   const [genre,setGenre] = useState(false);
@@ -20,7 +23,22 @@ export function MoviePage() {
   const [tdata,setData] = useState([]);
   const [show,setShow] = useState(false);
   const {city,handleChange}=useContext(AppContext);
-  
+  const history=useHistory();
+
+  const [showLogin,setShowLogin]=useState(false);
+
+  function handleModalClose()
+  {
+    setShowLogin(false);
+  }
+
+
+
+
+
+
+
+
   const settings = {
     dots: true,
     infinite: true,
@@ -36,10 +54,25 @@ export function MoviePage() {
     var genres = ["Drama","Comedy","Action","Romantic","Crime","Thriller","Adventure","Family","SciFi"]
     var formats = ["2D","3D","4DX3D","MX4D 3D","3D SCREEN X","IMAX 2D","IMAX 3D"]
  
+
+    
+
+
+
     useEffect(() => {
     console.log("higet")
     getData()
     console.log("hidata")
+
+    if(isLoggedIn())
+  {
+
+  }
+  else
+  {
+      setShowLogin(true);
+  }
+
   }, [])
 
  const handleSort = (lang)=>{
@@ -48,7 +81,7 @@ export function MoviePage() {
   .then((res)=>{
     console.log(res.data,"res")
     var result =   res.data.filter(el=>{
-      return el.language === lang;
+      return el.language.includes(lang);
      })
      console.log(result,"result")
      setData(result);
@@ -62,7 +95,7 @@ export function MoviePage() {
   axios.get("http://localhost:5000/movies")
   .then((res)=>{
     var result =   res.data.filter(el=>{
-      return (el.genre[0] == gen && el.language == languageState ||el.genre[1] == gen && el.language == languageState ||el.genre[2] == gen && el.language == languageState  );
+      return (el.genre.includes(gen) && el.language.includes(languageState) );
      })
      console.log(result,"resultgenre")
      setData(result);
@@ -74,7 +107,7 @@ export function MoviePage() {
   axios.get("http://localhost:5000/movies")
   .then((res)=>{
     var result =   res.data.filter(el=>{
-      return (el.genre[0] == genreState && el.language == languageState && el.view == form ||el.genre[1] == genreState && el.language == languageState && el.view == form ||el.genre[2] == genreState && el.language == languageState && el.view == form );
+      return (el.language.includes(languageState) && el.view.includes(form) );
      })
      console.log(result,"resultformat")
      setData(result);
@@ -83,6 +116,11 @@ export function MoviePage() {
  
  }
 
+
+ 
+ function handleClose(e) {
+  setShowLogin(false);
+}
   async function getData(){
     let {data} = await axios.get("http://localhost:5000/movies")
     setData(data)
@@ -92,6 +130,18 @@ export function MoviePage() {
   return (
  
     <div>
+
+
+      <Modal size="sm" show={showLogin} onHide={handleClose} style={{}} aria-labelledby="contained-modal-title-vcenter"
+                  centered>
+
+                  <Modal.Body>
+                      <Login hide={setShowLogin} />
+                  </Modal.Body>
+
+
+
+              </Modal>
       <Navbar/>
       <Menubar/> 
       <Slider {...settings} style={{maxWidth:'100%',maxHeight:'324px',marginRight:'20px',marginLeft:'20px',marginTop:'20px'}}>

@@ -11,17 +11,44 @@ import {useHistory} from 'react-router-dom';
 import Footer from '../footer/Footer';
 import Navbar from '../navbar/Navbar';
 import Menubar from '../menubar/Menubar';
+
+import Modal from 'react-bootstrap/Modal';
+import Login from '../Login/Login';
+
+import { isLoggedIn } from '../../utils/userUtil';
+import { useRef } from 'react';
 export const Book = ()=>{
    const [movies,setMovies] = useState([]);
    const [allmovies,setAllmovies] = useState([]);
    const history = useHistory();
    const arr = [{text:"#Awesome story",id:4490},{text:"#Great Acting",id:5580},{text:"#Wow Music",id:"8698"},{text:"#Must Watch",id:"6682"}];
    
-   const {id} = useParams()
+   const {id} = useParams();
+   const reference = useRef();
+
+
+   
+const [showLogin, setShowLogin] = useState(false);
+function handleClose(e) {
+        setShowLogin(false);
+    }
+
+     
 
    useEffect(()=>{
        getData();
        getAllData();
+
+       
+       reference.current.focus();
+       if(isLoggedIn())
+       {
+        window.scroll({top:0,behavior:'smooth'})
+       }
+       else
+       {
+           setShowLogin(true);
+       }
     
    },[id])
 
@@ -69,9 +96,21 @@ const getAllData = async()=>{
     
  }
     return(
-        <div className="book-cont">
+        <div className="book-cont" ref={reference}>
 
-        <Navbar/>
+
+
+<Modal size="sm" show={showLogin} onHide={handleClose} style={{}} aria-labelledby="contained-modal-title-vcenter"
+            >
+
+            <Modal.Body>
+                <Login hide={setShowLogin} />
+            </Modal.Body>
+
+
+
+</Modal>
+        <Navbar />
         <Menubar/>    
    {
        movies.map((item)=>(
