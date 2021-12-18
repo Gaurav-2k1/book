@@ -79,10 +79,14 @@ color: #CCCCCC;
     width:98%;
     background-color: #1F2533;
     color: white;
-    padding: 3%;
+    padding: 1%;
     display: flex;
     justify-content: space-between;
+    max-height: 80px;
 
+}
+span{
+    padding:30px;
 }
 .timeDate{
     width:98%;
@@ -158,4 +162,8 @@ margin: auto;
     display: flex;
    width: 20%;
      /* border: 1px solid black;  */
+}
+
+.center{
+    text-align: center;
 }

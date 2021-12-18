@@ -1,34 +1,79 @@
 import "./Summary.css"
 import Product from "./product_comp";
+
+
+import {useParams,useHistory} from 'react-router-dom';
+import { useContext, useEffect, useState } from "react";
+import Modal from 'react-bootstrap/Modal';
+import Navbar from "../navbar/Navbar";
+import Menubar from "../menubar/Menubar";
+import Footer from "../footer/Footer";
+import {FaBackward} from 'react-icons/fa';
+import { AppContext } from "../../contexts/AppContext";
+
 function Summary()
 {
+
+    const [bookingData,setBookingData]=useState({});
+
+    const {id}=useParams();
+    const [show,setShow]=useState(false);
+    const history = useHistory();
+    const {city,setCity}=useContext(AppContext);
+
+
+    useEffect(()=>{
+
+        fetch(`http://localhost:5000/book/getBooking/${id}`).then(async (data)=>{
+            let resp = await data.json();
+            setBookingData(resp);
+            console.log({bookingData});
+        }).catch((e)=>{
+            
+            console.log("Error",e);
+            
+        });
+
+
+    },[]);
+
+
     return(
+        <>
         <div>
-        {/* top */}
+        <Navbar/>
+        <Menubar/>
+        <div className="border border-primary" style={{height:'100vh'}}>
+        
+        
             <div className="maindiv">
 
                 <div>
                     <div className="Top_first_div">
-                        <p>The Eternals</p>
-                        <p>PVR: Vinayak, Bangaluru</p>
+                        
+                        
+                        <p className="pt-3">{bookingData?.movieid?.title}</p>
+                        <p className="pt-0">{bookingData?.theater?.name}</p>
+                        
+                        
                     </div>
                 </div>
 
                 <div className="Top_second_div">
-                    <p>2 Tickets </p>
+                    <p>{bookingData?.howmanySeats} Tickets</p>
                 </div>
 
             </div>
-            <br/>
+            
         {/* top */}
 
         {/* mid */}
         <div className="middiv">
             {/* left */}
-            <div className="mid_left_div">
+            <div className="mid_left_div ">
                 <div className="mid_left_text">
                     <h1>Grab a <span style={{color:"red",fontWeight:"10"}}>bite!</span></h1>
-                    <p style={{marginTop:"-20px"}}>Prebook Your Meal and Save More!</p>
+                    <p style={{marginTop:"20px"}}>Prebook Your Meal and Save More!</p>
                 </div>
                 <div className="top_button">
                     <button>ALL</button>
@@ -39,12 +84,12 @@ function Summary()
                 </div>
 
                 <div className="product_item">
+                     <Product />
                     <Product />
                     <Product />
                     <Product />
                     <Product />
-                    <Product />
-                    <Product />
+                    <Product /> 
                 </div>
             </div>
 
@@ -52,25 +97,25 @@ function Summary()
             <div className="mid_right_div">
                 <h4 style={{color:"red",marginLeft:"30px"}}>BOOKING SUMMARY</h4>
                 <div className="price_1">
-                    <span>EXEC - H1 (1 Ticket)</span>
-                    <span>Rs. 200.00</span>
+                    <span>EXEC - {bookingData?.seats?.map((el)=><span>{el}</span>)}{bookingData?.howmanySeats} Ticket(s)</span>
+                    <span>Rs {bookingData?.amount}</span>
                 </div>
 
                 <div className="price_2">
                     <span>Convenience fees</span>
-                    <span>Rs. 34.22</span>
+                    <span>Rs. {(bookingData?.amount)*0.18}</span>
                 </div>
                 <hr></hr>
                 <div className="total">
                     <span>Sub total</span>
-                    <span>Rs. 34.22</span>
+                    <span>Rs. {((bookingData?.amount)*0.18 )+bookingData?.amount+1} </span>
                 </div>
 
                 <div className="discount">
 
-                    <div>
+                    <div className="p-2">
                         <p style={{color:"black", fontWeight:"bold"}}>Contribution to BookASmile</p>
-                        <p style={{color:"gray"}}>(₹1 per ticket has been added)</p>
+                        <p style={{color:"gray"}} className="p-2">(₹1 per ticket has been added)</p>
                         <span style={{color:"gray"}}>VIEW T&C</span>
                     </div>
                         
@@ -80,18 +125,44 @@ function Summary()
                     </div>
 
                 </div>
-                <span style={{marginLeft:"40px"}}>Your current state is <span style={{color:"red",fontWeight:"bold"}}>karnataka</span> </span>
+                <span style={{marginLeft:"40px"}}>Your current city is <span style={{color:"red",fontWeight:"bold"}}>{city}</span> </span>
 
-                <div className="Amount">
-                    <p style={{fontWeight:"bold"}}>TOTAL: Rs. 255.22</p>
+                <div className="Amount p-3" onClick={()=>{
+                    setShow(true)
+
+                    setTimeout(()=>{
+                        history.push('/');
+                    },2000);    
+                }}>
+                    <p style={{fontWeight:"bold"}}>TOTAL: Rs. {((bookingData?.amount)*0.18 )+bookingData?.amount+1}</p>
                     <p style={{fontWeight:"bold"}}>Proceed</p>
                 </div>
             </div>
 
+
+            <Modal show={show} onHide={()=>{
+                setShow(false)  
+
+            }}>
+            <Modal.Header closeButton>
+                <Modal.Title>Congrats, Your tickets are booked successfully</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Order ID : {bookingData?._id}</Modal.Body>
+                <Modal.Footer>                
+                </Modal.Footer>
+            </Modal>
+
             
         </div>
+
+        
         {/* mid */}
         </div>
+
+        </div>
+        <Footer/>
+        </>
+
     )
 }
 export default Summary;

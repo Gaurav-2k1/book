@@ -14,6 +14,18 @@ export default function({toggle})
 
     const {city,handleChange} = useContext(AppContext);
     const [showLogin,setShowLogin]=useState(false);
+    
+
+
+
+
+    function checkUser()
+    {
+
+        return localStorage.getItem('user');
+
+    }
+
 
     function handleClose(e)
     {
@@ -61,13 +73,19 @@ centered>
   
   
                 <p className='sub'><FaUser/> Hi,&nbsp;{JSON.parse(localStorage.getItem('user')).displayName} &nbsp; <FaSignOutAlt onClick={()=>{
+
                     localStorage.removeItem('user');
+                    setShowLogin(false);
                 }}/> </p>
                 </div>:<div>
                 <Button  onClick={()=>{
                     setShowLogin(!showLogin); 
+                    
                }} className='btn-signin'>Signin</Button>
 
+                &nbsp;
+                &nbsp;
+                &nbsp;
                <img  src={`${process.env.PUBLIC_URL}/menu.png`} className="img-fluid"/>
                 </div> }
                

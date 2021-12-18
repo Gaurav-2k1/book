@@ -5,12 +5,12 @@ function Product()
     return (
       <>
         <div>
-          <img src={"Popcorn001.png"} alt="" />
+          <img src={`${process.env.PUBLIC_URL}/Popcorn001.png`} alt="" />
           <div className="product_dis">
             <div>
-              <h5 style={{ marginTop: "-1px" }}>Large Salted Popcorn</h5>
+              <h5 style={{ marginTop: "1px" }}>Large Salted Popcorn</h5>
               <p
-                style={{ marginTop: "-20px", fontSize: "12px", color: "gray" }}
+                style={{ marginTop: "20px", fontSize: "12px", color: "gray" }}
               >
                 Large Salted Popcorn
               </p>
@@ -23,6 +23,9 @@ function Product()
             </div>
           </div>
         </div>
+
+
+        
       </>
     );
 }

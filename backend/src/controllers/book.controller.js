@@ -12,8 +12,9 @@ router.get("/",async(req,res)=>{
 
 
 
-router.get("/:emailId",async(req,res)=>{
-    let orders = await Book.find({email:{$eq:req.params.emailId}}).lean().exec();
+router.get("/getBooking/:bookingId",async(req,res)=>{
+    console.log(req.params.bookingId);
+    let orders = await Book.findById(req.params.bookingId).populate('theater').populate('movieid').lean().exec();
 
     res.status(200).send(orders);
 });
@@ -29,9 +30,9 @@ router.post("/create",async(req,res)=>{
 
 })
 
-router.patch("/create/:id",async(req,res)=>{
+router.patch("/update/:id",async(req,res)=>{
 
-    let updatedBooking=await Book.findByIdAndUpdate(req.params.id,req.body);
+    let updatedBooking=await Book.findByIdAndUpdate(req.params.id,req.body,{new:true});
 
 
     res.status(201).send(updatedBooking);

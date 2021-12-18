@@ -1,5 +1,5 @@
 .maindiv{
-    position: absolute;
+    
     height: 80px;
     left: 0px;
     right: 0px;
@@ -8,13 +8,21 @@
     display: flex;
     justify-content: space-between;
 }
+
+span{
+    padding: 2px;
+}
 .Top_first_div{
-    width: 200px;
-    margin-top: -10px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
     color: white;
-    margin-left: 50px;
+    padding-left: 20px;
+    gap:2px;
+    
 }
 .Top_second_div{
+    
     width: 200px;
     color: rgb(243, 239, 239);
     margin-top: 15px;
@@ -26,7 +34,7 @@
     /* background-color: green; */
     width: 100%;
     height: 200px;
-    margin-top: 60px;
+    
 }
 .mid_left_div{
     /* border: 1px solid blue; */
@@ -36,6 +44,7 @@
     /* border: 1px solid rgb(209, 12, 160); */
     font-size: large;
     font-size: 15px;
+    margin-top: 6%;
 }
 .mid_left_text{
     color: black;
@@ -44,23 +53,23 @@
     margin: auto;
     text-align: center;
     font-weight: 100;
-    margin-top: -20px;
+    margin-top: 20px;
 }
 .price_1{
     display: flex;
     justify-content: space-around;
-    margin-left: -45px;
+    margin-left: 45px;
 }
 .price_2{
     display: flex;
     justify-content: space-around;
-    margin-left: -45px; 
+    margin-left: 45px; 
     margin-top: 20px;
 }
 .total{
     display: flex;
     justify-content: space-around;
-    margin-left: -45px; 
+    margin-left: 45px; 
     margin-top: 20px;
     font-weight: bold; 
 }
@@ -87,8 +96,9 @@
 }
 .top_button{
     /* border: 1px solid blue; */
-    width: 390px;
+    width: 100%;
     margin: auto;
+    text-align: center;
 }
 .top_button>button{
     padding: 5px;
@@ -107,13 +117,13 @@
 }
 .product_item>div{
     width: 100%;
-    height: 200px;
+    /* height: 200px; */
     /* background-color: aqua; */
     /* border: 1px solid black; */
 }
 .product_item>div img{
     width: 100%;
-    height: 150px;
+    /* height: 150px; */
 }
 .product_dis{
     display: flex;

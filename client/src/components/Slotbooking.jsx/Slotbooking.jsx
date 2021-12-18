@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../../style/slotbooking.css";
+import Footer from "../footer/Footer";
 import { Selectseat } from "../Seat/Selectseat";
 import { Terms } from "../Seat/Terms";
 
@@ -9,23 +10,75 @@ export const Slotbooking = () => {
   const [movie, setMovie] = useState([]);
   const [timearr, setTimearr] = useState([]);
   const [slottime, setSlottime] = useState([]);
-  const { id } = useParams();
+  const { id,bookingId } = useParams();
+  const [playingTheaters,setPlayingTheaters]=useState([]);
+  const [selectedTimeSlot,setSelectedTimeSlot]=useState("");
+  const [selectedTheater,setSelectedTheater]=useState("");
+  const [filtered,setFiltered]=useState([]);
+  const [selectedSeats,setSelectedSeats]=useState(0);
+
+
+
+  async function updateBooking(seats)
+  {
+
+      let resp=await axios.patch(`http://localhost:5000/book/update/${bookingId}`,{
+          howmanySeats:seats,
+          theater:selectedTheater,
+          timeOfShow:selectedTimeSlot,
+          dateOfBooking:new Date().getUTCDate()
+      });
+
+      console.log("After updating seats Data",resp);
+
+
+
+  }
+
+  async function getTheaters(movieId)
+  { 
+
+      let response = await axios.get("http://localhost:5000/theater/getTheaters/"+movieId);
+
+      console.log("movie is playing in theaters",response.data);
+      setPlayingTheaters(response.data);
+
+
+  }
+
+  console.log("Current Booking id",bookingId);
  console.log("id",id)
   const handleSortbyTime = (e) => {
     // console.log(e.target.value);
-
+    console.log(e.target.value);
     switch (e.target.value) {
       case "all":
         setTimearr(slottime);
         break;
 
       case "morning":
-        var sorted_time_arr = slottime.filter((item) => {
+        let timingsData=playingTheaters.map((el)=>el.showTimings);
+
+        let formatedData=timingsData.map((el)=>el.map((time)=>time.split(":")[0]).map(Number));
+
+        
+        let filtered=formatedData.map((arr)=>arr.filter((item)=>{
+          if (item> 6 && item < 12) {
+            return true;
+          }
+        }))
+        
+
+        console.log("Filtered Data",filtered);
+
+        /* var sorted_time_arr = slottime.filter((item) => {
           if (item.time > 6 && item.time < 12) {
             return true;
           }
-        })
-        setTimearr(sorted_time_arr);
+        }) */
+        //setTimearr(filter);
+        
+
         break;
 
       case "afternoon":
@@ -63,7 +116,11 @@ export const Slotbooking = () => {
 
   useEffect(() => {
     getData();
-    slotFetching();
+    //slotFetching();
+    getTheaters(id);
+    
+
+
   }, []);
 
   //---------getting single movie data-------------//
@@ -160,11 +217,11 @@ export const Slotbooking = () => {
         </div>
         <hr className="mt-2" />
       </div>
-      {[1, 2, 2].map((rows) => (
+      { playingTheaters.map((theater) => (
         <div className="row box-4 me-2">
           <div className="col-4">
             <img src={"blankheart.png"} alt="" />
-            <span className="m-3 theatre-name">Pvr: Bengulru</span>
+            <span className="m-3 theatre-name">{theater.name}</span>
             <div>
               <img src={"mobile.png"} alt="" />
               <span className="m-ticket">M-Tickets</span>
@@ -173,15 +230,21 @@ export const Slotbooking = () => {
             </div>
           </div>
           <div className="col-8">
-            {timearr.map((item) => (
+            {theater.showTimings.map((item) => (
               //    <button className="btn  m-3 slot-time" onClick={handleCount}>{time}AM</button>
               <button
+
+                onClick={()=>{
+                  setSelectedTimeSlot(item);
+                  setSelectedTheater(theater._id);
+                  
+                }}
                 type="button"
                 className="btn  m-3 slot-time"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
-                {item.time < 10 ? `0${item.time}` : item.time}
+                {item}
               </button>
             ))}
             <div className=" cancellation-avilabe-div">
@@ -218,10 +281,12 @@ export const Slotbooking = () => {
         <div class="modal-dialog">
           <div class="modal-content">
             {" "}
-            <Selectseat />
+            <Selectseat handleSelection={setSelectedSeats}  update={updateBooking} />
           </div>
         </div>
       </div>
+
+      <Footer/>
     </div>
   );
 };

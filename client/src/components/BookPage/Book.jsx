@@ -8,6 +8,9 @@ import { Slicker } from './Slicker';
 import { Booklike } from './Booklike';
 import { useParams } from 'react-router-dom';
 import {useHistory} from 'react-router-dom';
+import Footer from '../footer/Footer';
+import Navbar from '../navbar/Navbar';
+import Menubar from '../menubar/Menubar';
 export const Book = ()=>{
    const [movies,setMovies] = useState([]);
    const [allmovies,setAllmovies] = useState([]);
@@ -54,7 +57,11 @@ const getAllData = async()=>{
                  movieid:data[0]._id,
                  name:user.displayName
         }
-        await axios.post("http://localhost:5000/book/create",payload)
+        let resp=await axios.post("http://localhost:5000/book/create",payload)
+        console.log(resp.data);
+
+        localStorage.setItem('currentBooking',JSON.stringify(resp.data));
+
      }
      catch(err){
 
@@ -63,6 +70,9 @@ const getAllData = async()=>{
  }
     return(
         <div className="book-cont">
+
+        <Navbar/>
+        <Menubar/>    
    {
        movies.map((item)=>(
         
@@ -71,7 +81,7 @@ const getAllData = async()=>{
                 <div className='movie-img-cont'> <img src={item.img_url}/> </div>
                 <div className='movie-detail'>
                       <h1 className='text-white'>{item.title}</h1>
-                      <p className='text-white'><img src={"heart.png"} className='me-1'/><span className='me-2'>{item.likes}</span><span>{item.ratings}ratings</span></p>
+                      <p className='text-white'><img src={`${process.env.PUBLIC_URL}/heart.png`} className='me-1'/><span className='me-2'>{item.likes}</span><span>{item.ratings}ratings</span></p>
                      <div className='rating-box mb-2'>
                          <div>
                               <div  className='add-rating-text'>Add your ratings and reviews</div>
@@ -84,9 +94,11 @@ const getAllData = async()=>{
                     <div className='text-white movie-duration mt-2'><span className='m-2'>{item.duration}</span>{item.genre.map((action)=>(<span className='m-1'>{action},</span>))}<span className='m-2'>{item.certificate}</span>{item.release}<span></span></div>
                     <button className='btn book-btn mt-3'
                     onClick={()=>{
-                        // bookingDetail(item._id)
-                        console.log("ibookd",item._id)
-                        history.push(`/slot/${item._id}`)
+                        bookingDetail(item._id)
+                        //console.log("ibookd",item._id)
+
+                        let bookingId=JSON.parse(localStorage.getItem('currentBooking'))._id;
+                        history.push(`/slot/${item._id}/${bookingId}`);
                     }}
                     >Book Tickets</button>
                 </div>
@@ -138,7 +150,9 @@ const getAllData = async()=>{
       <div>
        <Booklike allmovies={allmovies}/>
       </div>
-        </div>
+
+      <Footer/>
+    </div>
        
        
     )

@@ -11,7 +11,28 @@ router.get('/',async(req,res)=>{
     res.status(200).send(allTheaters);
 })
 
+router.get("/getTheaters/:movieId",async (req,res)=>{
 
+    let data = await Theater.find({currentPlayingMovies:{$in:[req.params.movieId]}}).lean().exec();
+    res.status(200).send(data);
+
+})
+
+
+
+router.get("/getTheaters/:movieId/:filter",async (req,res)=>{
+
+
+    let filteredCondition = req.params.filter;
+
+    filteredCondition= filteredCondition.split("-");
+    console.log(filteredCondition);
+
+    
+    let data = await Theater.find({$and:[{currentPlayingMovies:{$in:[req.params.movieId]}},{showTimings:{$in:[filteredCondition]}}]}).lean().exec();
+    res.status(200).send(data);
+
+})
 
 router.post("/",async(req,res)=>{
 
