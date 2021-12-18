@@ -38,7 +38,8 @@ const getAllData = async()=>{
         <div className="book-cont">
    {
        movies.map((item)=>(
-        <div className='book' style={{backgroundImage:`url(${item.bg_img})`,backgroundSize:"cover"}} key={nanoid(5)}>
+        
+        <div className='book grad' style={{backgroundImage:`url(${item.bg_img})`,backgroundSize:"cover"}} key={nanoid(5)}>
             <div className='heading-cont'>
                 <div className='movie-img-cont'> <img src={item.img_url}/> </div>
                 <div className='movie-detail'>
@@ -55,7 +56,7 @@ const getAllData = async()=>{
                     <div><button className='btn bg-white'>{item.language.map((lang)=>(<span className='me-1'>{lang}</span>))}</button></div>
                     <div className='text-white movie-duration mt-2'><span className='m-2'>{item.duration}</span>{item.genre.map((action)=>(<span className='m-1'>{action},</span>))}<span className='m-2'>{item.certificate}</span>{item.release}<span></span></div>
                     <button className='btn book-btn mt-3'
-                    onClick={()=>history.push("/slot")}
+                    onClick={()=>history.push(`/slot/${item._id}`)}
                     >Book Tickets</button>
                 </div>
                 <div>
@@ -82,7 +83,7 @@ const getAllData = async()=>{
        <div className='row cast-section'>
           <h1 className='text-start mb-4'>Crew</h1>
            {movies.map((item)=>(
-           <Bookcrew item={item.cast} key={nanoid(5)} key={nanoid(5)}/>
+           <Bookcrew item={item.crew} key={nanoid(5)} key={nanoid(5)}/>
        ))}
        </div>
 
@@ -107,6 +108,7 @@ const getAllData = async()=>{
        <Booklike allmovies={allmovies}/>
       </div>
         </div>
+       
        
     )
 }

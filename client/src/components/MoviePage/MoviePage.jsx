@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
+import { AppContext } from "../../contexts/AppContext";
 import Footer from "../footer/Footer";
 import Menubar from "../menubar/Menubar";
 import Navbar from "../navbar/Navbar";
@@ -8,6 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./MoviePage.css";
+import {Link} from 'react-router-dom'
 export function MoviePage() {
   const [language, setLanguage] = useState(false);
   const [genre,setGenre] = useState(false);
@@ -17,6 +19,7 @@ export function MoviePage() {
   const [formatState,setFormatState] = useState("");
   const [data,setData] = useState([]);
   const [show,setShow] = useState(false);
+  const {city,handleChange}=useContext(AppContext);
   
   const settings = {
     dots: true,
@@ -41,7 +44,7 @@ export function MoviePage() {
   }, [])
 
  const handleSort = (lang)=>{
-  axios.get("http://localhost:3006/movies")
+  axios.get("http://localhost:5000/movies")
   .then((res)=>{
     var result =   res.data.filter(el=>{
       return el.language == lang;
@@ -63,10 +66,6 @@ export function MoviePage() {
      setData(result);
      setGenreState(gen)
     })
-    
-    
- 
- 
  }
 
  const handleSortFormat = (form)=>{
@@ -82,15 +81,12 @@ export function MoviePage() {
  
  }
 
-  function getData(){
-    console.log("hi")
-    axios.get("http://localhost:3006/movies")
-    .then((res)=>{
-      console.log(res.data);
-    setData(res.data)
+  async function getData(){
+    let {data} = await axios.get("http://localhost:5000/movies")
+    setData(data)
     setShow(true)
-    })
   }
+
   return (
  
     <div>
@@ -153,7 +149,7 @@ export function MoviePage() {
      {/*---------------------------- Right Side Movie --------------------------------------*/}
 
         <div className="rightMovies">
-          Movies in Bengalore
+          Movies in {city}
           <div className="rightMoviesBelow">
           {languages.map(el=><span key={el} onClick={()=>handleSort(el)} className="moviesNName">{el}</span>)}
            
@@ -167,12 +163,13 @@ export function MoviePage() {
           <div>{!show?null:<div className="gridContainer">
             {
               data.map(el=><div className="gridItem"> 
+              <Link to = {`/movie/${el._id}`}>
                 <img className="imagePara" src={el.img_url}></img>
                 <p className="titlePara">{el.title}</p>
                 <p className="certificatePara">{el.certificate}</p>
-                <p className="certificatePara">{el.language}</p>
-
-                
+                <p className="certificatePara" style={{fontSize:"12px"}}><span className="me-1">{el.language}</span></p>
+                </Link>
+         
               </div>)
             }
             
