@@ -63,7 +63,8 @@ a{
 
     display: flex;
     flex-direction: row;
-    gap:60px;
+    gap:2%;
+    max-width: 100%;
    
     
 }
