@@ -28,10 +28,36 @@ https://github.com/ashwanikpankaj/bookmyshow_clone
 - After clicking proceed button user will redirect to final summary of ticket booking.
 - After confirming their ticket user will again redirect to home page.
 ## Contributers :-
-- [Sumit Kumar](https://github.com/sumit-krk)
 - [Akhil KAMSALA](https://github.com/akhilsdeportfolio)
 - [Ashwani Kumar Pankaj](https://github.com/ashwanikpankaj)
 - [Shikha Mishra](https://github.com/sumit-krk)
+- [Sumit Kumar](https://github.com/sumit-krk)
+
+
+
+## Prerequisties
+Install vs-code
+
+- [Click here to install vs-code]( https://code.visualstudio.com/download)
+
+Install Node
+
+- [Click here to install nodejs]( https://nodejs.org/en/)
+## Cloning and Running the Appliction in local
+
+Clone the project into local Install all the npm packages. Go into the project folder and type the following command to install all npm packages
+
+```bash
+  npm install
+```
+Run clint side
+```bash
+  npm start
+```
+Run Backend side
+```bash
+  npm run start
+```
 ## Screenshots :-
 - Landing Page
 ![Logo](https://github.com/sumit-krk/name/blob/master/Capture_1.PNG?raw=true)
@@ -39,15 +65,23 @@ https://github.com/ashwanikpankaj/bookmyshow_clone
 ![Logo](https://github.com/sumit-krk/name/blob/master/Capture_2.PNG?raw=true)
 
 ![Logo](https://github.com/sumit-krk/name/blob/master/Capture_3.PNG?raw=true)
+
 - Movie Description Page
+
 ![Logo](https://github.com/sumit-krk/name/blob/master/Capture_4.PNG?raw=true)
 
 ![Logo](https://github.com/sumit-krk/name/blob/master/Capture_5.PNG?raw=true)
+
 - Slot Booking
+
 ![Logo](https://github.com/sumit-krk/name/blob/master/Capture_6.PNG?raw=true)
+
 - Select Seat
+
 ![Logo](https://github.com/sumit-krk/name/blob/master/Capture_7.PNG?raw=true)
+
 - Confirmation Page
+
 ![Logo](https://github.com/sumit-krk/name/blob/master/Capture_8.PNG?raw=true)
 
 
