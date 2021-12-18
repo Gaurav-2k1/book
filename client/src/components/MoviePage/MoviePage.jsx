@@ -16,7 +16,7 @@ export function MoviePage() {
   const [languageState, setLanguageState] = useState("");
   const [genreState,setGenreState] = useState("");
   const [formatState,setFormatState] = useState("");
-  const [data,setData] = useState([]);
+  const [tdata,setData] = useState([]);
   const [show,setShow] = useState(false);
   
   const settings = {
@@ -34,7 +34,6 @@ export function MoviePage() {
     var genres = ["Drama","Comedy","Action","Romantic","Crime","Thriller","Adventure","Family","SciFi"]
     var formats = ["2D","3D","4DX3D","MX4D 3D","3D SCREEN X","IMAX 2D","IMAX 3D"]
  
- 
     useEffect(() => {
     console.log("higet")
     getData()
@@ -42,15 +41,18 @@ export function MoviePage() {
   }, [])
 
  const handleSort = (lang)=>{
+   console.log("lang",lang)
   axios.get("http://localhost:5000/movies")
   .then((res)=>{
+    console.log(res.data,"res")
     var result =   res.data.filter(el=>{
-      return el.language == lang;
+      return el.language === lang;
      })
      console.log(result,"result")
      setData(result);
      setLanguageState(lang);
   })
+  
  
  }
  const handleSortGenre = (gen)=>{
@@ -160,7 +162,7 @@ export function MoviePage() {
 
           <div>{!show?null:<div className="gridContainer">
             {
-              data.map(el=><div className="gridItem"> 
+              tdata.map(el=><div className="gridItem"> 
               <Link to = {`/movie/${el._id}`}>
                 <img className="imagePara" src={el.img_url}></img>
                 <p className="titlePara">{el.title}</p>

@@ -23,7 +23,6 @@ export const Booklike = ({allmovies})=>{
         slidesToScroll: 1
       };
     
-
     return(
         <>
       
@@ -32,9 +31,9 @@ export const Booklike = ({allmovies})=>{
             
                    {
                       allmovies.map((item)=>(
-                          <div key={nanoid(5)}>
+                          <div key={nanoid(5)}  onClick={()=>{return  window.scrollTo(0,0)} }>
                               <Link to={`/movie/${item._id}`} style={{textDecoration:"none"}}>
-                             <MovieCard image={item.img_url} title={item.title} tag={item.tag} id={item._id} />
+                             <MovieCard image={item.img_url} title={item.title} tag={item.tag} id={item._id}/>
                              </Link>
                          </div>
                         ))

@@ -27,7 +27,7 @@ const getData = async()=>{
    setMovies(data)
   
 }
-console.log("movie",movies)
+// console.log("movie",movies)
 const getAllData = async()=>{
     let {data}  = await axios.get(`http://localhost:5000/movies`);
     setAllmovies(data)
