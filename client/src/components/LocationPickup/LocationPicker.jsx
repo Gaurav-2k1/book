@@ -6,6 +6,7 @@ export default function({handleClose})
 {
 
     const {city,handleChange}=useContext(AppContext);
+    
 
     return(<>
         <div className="container-fluid box" style={{width:'100%'}}>
