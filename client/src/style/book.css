@@ -1,6 +1,10 @@
 * {
   font-family: Roboto;
 }
+
+a{
+  text-decoration: none;
+}
 .book {
   height: 528px;
   width: 100%;
