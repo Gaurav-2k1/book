@@ -23,17 +23,44 @@ export const Book = ()=>{
    },[id])
 
 const getData = async()=>{
-    let {data}  = await axios.get(`http://localhost:5000/movies/${id}`);
-   setMovies(data)
+    try{
+        let {data}  = await axios.get(`http://localhost:5000/movies/${id}`);
+        setMovies(data)     
+    }
+    catch(err){
+        
+    }
   
 }
 // console.log("movie",movies)
 const getAllData = async()=>{
-    let {data}  = await axios.get(`http://localhost:5000/movies`);
-    setAllmovies(data)
+    try{
+        let {data}  = await axios.get(`http://localhost:5000/movies`);
+        setAllmovies(data)
+    }
+   catch(err){
+
+   }
 }
 
+ const bookingDetail = async(id)=>{
+     try{
+        let user = JSON.parse(localStorage.getItem("user"))
+        // console.log(user)
+       let {data}  = await axios.get(`http://localhost:5000/movies/${id}`);
+        let payload = {
+                 uid:user.uid,
+                 email:user.email,
+                 movieid:data[0]._id,
+                 name:user.displayName
+        }
+        await axios.post("http://localhost:5000/book/create",payload)
+     }
+     catch(err){
 
+     }
+    
+ }
     return(
         <div className="book-cont">
    {
@@ -56,7 +83,11 @@ const getAllData = async()=>{
                     <div><button className='btn bg-white'>{item.language.map((lang)=>(<span className='me-1'>{lang}</span>))}</button></div>
                     <div className='text-white movie-duration mt-2'><span className='m-2'>{item.duration}</span>{item.genre.map((action)=>(<span className='m-1'>{action},</span>))}<span className='m-2'>{item.certificate}</span>{item.release}<span></span></div>
                     <button className='btn book-btn mt-3'
-                    onClick={()=>history.push(`/slot/${item._id}`)}
+                    onClick={()=>{
+                        // bookingDetail(item._id)
+                        console.log("ibookd",item._id)
+                        history.push(`/slot/${item._id}`)
+                    }}
                     >Book Tickets</button>
                 </div>
                 <div>

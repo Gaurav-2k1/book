@@ -9,27 +9,27 @@ import { Terms } from './components/Seat/Terms';
 import { Selectseat } from './components/Seat/Selectseat';
 import { Slotbooking } from './components/Slotbooking.jsx/Slotbooking';
 import { Seating } from './components/SeatBook/Seating';
-// import { initializeApp } from 'firebase/app';
-// import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from "firebase/analytics";
 
 
 
 function App() {
 
-  // const firebaseConfig = {
-  //   apiKey: "AIzaSyALuLSKz7yNKbdk3t3kAHfs1ODnmygpdjQ",
-  //   authDomain: "bookmyshow-5a00b.firebaseapp.com",
-  //   projectId: "bookmyshow-5a00b",
-  //   storageBucket: "bookmyshow-5a00b.appspot.com",
-  //   messagingSenderId: "696353441992",
-  //   appId: "1:696353441992:web:3d682155c2f61541c77dfd",
-  //   measurementId: "G-MLVGY89LDF"
-  // };
+  const firebaseConfig = {
+    apiKey: "AIzaSyALuLSKz7yNKbdk3t3kAHfs1ODnmygpdjQ",
+    authDomain: "bookmyshow-5a00b.firebaseapp.com",
+    projectId: "bookmyshow-5a00b",
+    storageBucket: "bookmyshow-5a00b.appspot.com",
+    messagingSenderId: "696353441992",
+    appId: "1:696353441992:web:3d682155c2f61541c77dfd",
+    measurementId: "G-MLVGY89LDF"
+  };
   
   
-  // const app = initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
   
-  // const analytics = getAnalytics(app);
+  const analytics = getAnalytics(app);
   return (
     <div className="App">      
       <Switch>
