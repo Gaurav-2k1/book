@@ -30,7 +30,28 @@ signInWithPopup(auth, provider)
     // The signed-in user info.
     const user = result.user;
 
-    console.log("User is authenticated");
+    console.log(user);
+
+    fetch('http://localhost:5000/users/createUser',{
+      method: 'POST', 
+    mode: 'cors', 
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer', 
+      body:JSON.stringify(user)
+    }).then(async(res)=>{
+        let data=await res.json();
+        console.log("Created User",data);
+    }).catch((e)=>{
+      console.log(e);
+    });
+
+    localStorage.setItem('user',JSON.stringify(user));
+
     hide(false);
     // ...
   }).catch((error) => {

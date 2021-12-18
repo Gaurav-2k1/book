@@ -10,5 +10,11 @@ router.get('/',async (req,res)=>{
     res.send(users);
 })
 
+router.post('/createUser',async(req,res)=>{
+    console.log("reuest came",req.body);
+    let createdUser = await User.create(req.body);
+    res.status(201).send(createdUser);
+})
+
 
 module.exports= router;

@@ -8,6 +8,7 @@ export const AppContextProvider=({children})=>{
 
     const [city,setCity]=useState("bangalore");
 
+    
     const handleChange = (newCity)=>{
         setCity(newCity)
     }
