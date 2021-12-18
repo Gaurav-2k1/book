@@ -10,9 +10,9 @@ export const Slotbooking = () => {
   const [timearr, setTimearr] = useState([]);
   const [slottime, setSlottime] = useState([]);
   const { id } = useParams();
-
+ console.log("id",id)
   const handleSortbyTime = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
 
     switch (e.target.value) {
       case "all":
@@ -71,12 +71,10 @@ export const Slotbooking = () => {
     let { data } = await axios.get(`http://localhost:5000/movies/${id}`);
     setMovie(data);
   };
-  //-----------fetching the slot--------------//
+  //-----------fetching the theatres--------------//
   const slotFetching = async () => {
-    let { data } = await axios.get("http://localhost:5000/slotprice");
-    let slot_data = data.filter((item) => item.movie == id);
-    setSlottime(slot_data[0].slot);
-    setTimearr(slot_data[0].slot)
+    let { data } = await axios.get("http://localhost:5000/theater");
+    console.log("theatre",data)
   };
   return (
     <div className="container-fluid">
