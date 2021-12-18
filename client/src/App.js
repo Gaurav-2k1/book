@@ -8,6 +8,7 @@ import Footer from './components/footer/Footer';
 import { Terms } from './components/Seat/Terms';
 import { Selectseat } from './components/Seat/Selectseat';
 import { Slotbooking } from './components/Slotbooking.jsx/Slotbooking';
+import { Seating } from './components/SeatBook/Seating';
 // import { initializeApp } from 'firebase/app';
 // import { getAnalytics } from "firebase/analytics";
 
@@ -37,6 +38,8 @@ function App() {
         <Route path="/movie/:id"><Book/></Route>
         <Route path="/book"><Book/></Route>
         <Route path="/terms"> <Terms/> <Selectseat/></Route>
+        <Route path = "/slot"><Slotbooking/></Route>
+        <Route path = "/seating"><Seating/></Route>
         <Route path = "/slot/:id"><Slotbooking/></Route>
     </Switch>
     </div>

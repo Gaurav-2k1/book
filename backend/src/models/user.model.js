@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 
 
 const userSchema = new mongoose.Schema({
-    email :{type:String,required:true,unique:true},
-    password:{type:String,required:true},
+    email :{type:String,required:false,unique:true},
+    password:{type:String,required:false},
     firstName:{type:String,required:false},
     lastName:{type:String,required:false},
+    uid:{type:String,required:false}
 /*     address :{type:mongoose.Schema.Types.ObjectId,ref:'address'} */
 },{
     versionKey:false,

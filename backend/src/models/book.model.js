@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const bookSchema = new mongoose.Schema({
     email:{type:String},
-    uid:{type:mongoose.Schema.Types.ObjectId,ref:'user'},
+    uid:{type:String,ref:'user'},
     seats:[{type:String}],
     howmanySeats:{type:Number},
     theater:{type:mongoose.Schema.Types.ObjectId,ref:'theater'},

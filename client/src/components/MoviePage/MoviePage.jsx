@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
+import { AppContext } from "../../contexts/AppContext";
 import Footer from "../footer/Footer";
 import Menubar from "../menubar/Menubar";
 import Navbar from "../navbar/Navbar";
@@ -18,6 +19,7 @@ export function MoviePage() {
   const [formatState,setFormatState] = useState("");
   const [tdata,setData] = useState([]);
   const [show,setShow] = useState(false);
+  const {city,handleChange}=useContext(AppContext);
   
   const settings = {
     dots: true,
@@ -149,7 +151,7 @@ export function MoviePage() {
      {/*---------------------------- Right Side Movie --------------------------------------*/}
 
         <div className="rightMovies">
-          Movies in Bengalore
+          Movies in {city}
           <div className="rightMoviesBelow">
           {languages.map(el=><span key={el} onClick={()=>handleSort(el)} className="moviesNName">{el}</span>)}
            
