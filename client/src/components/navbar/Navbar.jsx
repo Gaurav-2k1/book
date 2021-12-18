@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 import Login from '../Login/Login';
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
+import {FaUser,FaSignOutAlt} from 'react-icons/fa';
 export default function({toggle})
 {
 
@@ -54,11 +55,22 @@ centered>
                 <div onClick={toggle}>
                     <p className='sub'>{city} <img className='img-fluid' src={`${process.env.PUBLIC_URL}/down.png`}/></p>
                 </div>
-               <Button  onClick={()=>{
+
+
+                { localStorage.getItem('user') ? <div>
+  
+  
+                <p className='sub'><FaUser/> Hi,&nbsp;{JSON.parse(localStorage.getItem('user')).displayName} &nbsp; <FaSignOutAlt onClick={()=>{
+                    localStorage.removeItem('user');
+                }}/> </p>
+                </div>:<div>
+                <Button  onClick={()=>{
                     setShowLogin(!showLogin); 
                }} className='btn-signin'>Signin</Button>
 
                <img  src={`${process.env.PUBLIC_URL}/menu.png`} className="img-fluid"/>
+                </div> }
+               
         </div>  
 
 
