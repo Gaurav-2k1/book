@@ -30,7 +30,7 @@ https://github.com/ashwanikpankaj/bookmyshow_clone
 ## Contributers :-
 - [Akhil KAMSALA](https://github.com/akhilsdeportfolio)
 - [Ashwani Kumar Pankaj](https://github.com/ashwanikpankaj)
-- [Shikha Mishra](https://github.com/sumit-krk)
+- [Shikha Mishra](https://github.com/sHikha06-max)
 - [Sumit Kumar](https://github.com/sumit-krk)
 
 
