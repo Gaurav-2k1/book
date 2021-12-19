@@ -88,4 +88,4 @@ Run Backend side
 
 ## For more details :-
 
-- [Read our Blog](https://shikha06.hashnode.dev/)
+- [Read our Blog](https://shikha06.hashnode.dev/bookmyshow-clone)
