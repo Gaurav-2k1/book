@@ -2,7 +2,7 @@
 ![Logo](https://github.com/sumit-krk/name/blob/master/Book_my_shoe.PNG?raw=true)
 
 
-# bookmyshow clone
+# Bookmyshow clone
 
 BookMyShow offers showtimes, movie tickets, reviews, trailers, concert tickets and events across india.
 
@@ -88,4 +88,4 @@ Run Backend side
 
 ## For more details :-
 
-- [Read our Blog](https://github.com/sumit-krk)
+- [Read our Blog](https://shikha06.hashnode.dev/)
