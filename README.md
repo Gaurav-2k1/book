@@ -92,3 +92,6 @@ Run Backend side
 ## For more details :-
 
 - [Read our Blog](https://shikha06.hashnode.dev/bookmyshow-clone)
+
+## Deploy link:-
+- https://bookmyshow-5a00b.firebaseapp.com/
