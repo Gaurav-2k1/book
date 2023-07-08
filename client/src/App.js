@@ -2,7 +2,7 @@ import './App.css';
 import { MoviePage } from './components/MoviePage/MoviePage';
 
 import { Book } from '../src/components/BookPage/Book';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 
 import { Terms } from './components/Seat/Terms';
@@ -31,26 +31,26 @@ function App() {
     appId: "1:696353441992:web:3d682155c2f61541c77dfd",
     measurementId: "G-MLVGY89LDF"
   };
-  
-  
+
+
   const app = initializeApp(firebaseConfig);
-  
+
   const analytics = getAnalytics(app);
   return (
-    <div className="App">      
-    
-      <Switch>
-        <Route path="/" exact><Home/></Route>
-        <Route path="/moviepage"><MoviePage/></Route>
-        <Route path="/movie/:id"><Book/></Route>
-        <Route path="/book"><Book/></Route>
-        <Route path="/terms"> <Terms/> <Selectseat/></Route>
-        <Route path = "/slot/:id/:bookingId"><Slotbooking/></Route>
-        <Route path = "/seating/:id"><Seating/></Route>        
-        <Route path = "/summary/:id"><Summary/></Route>       
-        
-    </Switch>
-    
+    <div className="App">
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/moviepage" element={<MoviePage />} />
+        <Route path="/movie/:id" element={<Book />} />
+        <Route path="/book" element={<Book />} />
+        <Route path="/terms" element={<><Terms /> <Selectseat /></>} />
+        <Route path="/slot/:id/:bookingId" element={<Slotbooking />} />
+        <Route path="/seating/:id" element={<Seating />} />
+        <Route path="/summary/:id" element={<Summary />} />
+
+      </Routes>
+
     </div>
   );
 }

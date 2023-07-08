@@ -1,13 +1,13 @@
 import { nanoid } from "nanoid"
 import { useState } from "react"
 import { useParams } from "react-router-dom"
-import { useHistory } from "react-router-dom/"
+import { useNavigate } from "react-router-dom/"
 import "../../style/selectseat.css"
 export const Selectseat = ({handleSelection,update})=>{
     
 
     const [seats,setSeats]=useState(0);
-    const history = useHistory();
+    const history = useNavigate();
     const {id,bookingId} = useParams();
     const [Aseats,setASeats]=useState([1,2,3,4,5]);
 
@@ -57,7 +57,7 @@ export const Selectseat = ({handleSelection,update})=>{
                  handleSelection(seats);
                  update(seats)
                  setTimeout(()=>{
-                    history.push(`/seating/`+bookingId);
+                    history(`/seating/`+bookingId);
                  },3000);
                  
                  
@@ -70,7 +70,7 @@ export const Selectseat = ({handleSelection,update})=>{
                  handleSelection(seats);
                  update(seats)
                  setTimeout(()=>{
-                    history.push(`/seating/`+bookingId);
+                    history(`/seating/`+bookingId);
                  },3000);
                  
                  

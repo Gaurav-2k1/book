@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./MoviePage.css";
-import {Link,useHistory} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import {isLoggedIn} from '../../utils/userUtil';
 import Login from "../Login/Login";
@@ -23,7 +23,7 @@ export function MoviePage() {
   const [tdata,setData] = useState([]);
   const [show,setShow] = useState(false);
   const {city,handleChange}=useContext(AppContext);
-  const history=useHistory();
+  const history=useNavigate();
 
   const [showLogin,setShowLogin]=useState(false);
 

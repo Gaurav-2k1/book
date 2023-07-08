@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import "./Seating.css";
 import axios from "axios";
-import {useParams,useHistory} from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 var array = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 }
 ];
 var array1 = [{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }, { id: nanoid(), num: 9 }, { id: nanoid(), num: 10 },
@@ -88,10 +88,10 @@ export function Seating() {
   const [seatNumber, setSeatNumber] = useState([]);
   const [price, setPrice] = useState(1);
   const [selectedPrices, setSelectedPrices] = useState([]);
-  const {id}=useParams();
-  const [bookingData,setBookingData]=useState({});
-  const history = useHistory()
-  
+  const { id } = useParams();
+  const [bookingData, setBookingData] = useState({});
+  const history = useNavigate()
+
   const options = {
     weekday: "short",
     month: "short",
@@ -107,15 +107,15 @@ export function Seating() {
 
 
 
-  useEffect(()=>{
-      fetch(`http://localhost:5000/book/getBooking/`+id).then(async (res)=>{
+  useEffect(() => {
+    fetch(`http://localhost:5000/book/getBooking/` + id).then(async (res) => {
 
-        setBookingData(await res.json());
+      setBookingData(await res.json());
 
 
-      }).catch((e)=>{
-        console.log(e);
-      });
+    }).catch((e) => {
+      console.log(e);
+    });
   });
   // const months =  new Date().toLocaleDateString("en-US",options);
 
@@ -129,36 +129,34 @@ export function Seating() {
 
 
 
- async function updateBookingWithSeats()
-  {
+  async function updateBookingWithSeats() {
 
 
-    if(seatNumber.length!=bookingData.howmanySeats)
-    {
+    if (seatNumber.length != bookingData.howmanySeats) {
 
     }
-    else{
-      fetch(`http://localhost:5000/book/update/${id}`,{
+    else {
+      fetch(`http://localhost:5000/book/update/${id}`, {
 
-      method:'PATCH',
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        seats:seatNumber,
-          amount: selectedPrices.length > 0 ? selectedPrices.reduce((ac,el)=>ac+el) :0 
-      })
-      }).then(async (resp)=>{
-        let data=await resp.json();
+        method: 'PATCH',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          seats: seatNumber,
+          amount: selectedPrices.length > 0 ? selectedPrices.reduce((ac, el) => ac + el) : 0
+        })
+      }).then(async (resp) => {
+        let data = await resp.json();
         console.log(data);
-        history.push(`/summary/`+id);
+        history(`/summary/` + id);
       });
 
     }
 
-    
 
-    
+
+
 
   }
 
@@ -179,21 +177,21 @@ export function Seating() {
       <div className="UpperBaar">
         <div className="moviesTheaterName">
           <div>
-            <img onClick={()=>{
-              history.goBack();
+            <img alt="" onClick={() => {
+              history(-1);
             }} className="img-fluid" src={`${process.env.PUBLIC_URL}/vectorLeft.png`}></img>
-          <span>{  bookingData?.movieid?.title}</span>
-          <br/>
-          <span style={{marginLeft:'10px'}}>{bookingData?.theater?.name}</span>
-          
-        </div>
+            <span>{bookingData?.movieid?.title}</span>
+            <br />
+            <span style={{ marginLeft: '10px' }}>{bookingData?.theater?.name}</span>
+
+          </div>
         </div>
         <div className="clossse">
           <div className="numbrOfTicket">
             <div >{bookingData?.howmanySeats} Tickets</div>
-            <div><img src={`${process.env.PUBLIC_URL}/vectorUpper.png`} /></div>
+            <div><img alt="" src={`${process.env.PUBLIC_URL}/vectorUpper.png`} /></div>
           </div>
-          <div><img src={`${process.env.PUBLIC_URL}/vectorCross.png`} /></div>
+          <div><img alt="" src={`${process.env.PUBLIC_URL}/vectorCross.png`} /></div>
         </div>
       </div>
       {/* <h1>{seatNumber},{price},{selectedPrices.length > 0  ? selectedPrices.reduce((ac,el)=>ac+el) : 0}</h1>  */}
@@ -454,13 +452,13 @@ export function Seating() {
 
       <div className="center">
 
-      {selectedPrices.length==0 ? <button disabled  onClick={updateBookingWithSeats} className="btn btn-danger btn-lg" style={{border:'0px'}}>Proceed</button> :<button   onClick={updateBookingWithSeats} className="btn btn-danger btn-lg" style={{border:'0px'}}>Proceed</button> }
-      
+        {selectedPrices.length == 0 ? <button disabled onClick={updateBookingWithSeats} className="btn btn-danger btn-lg" style={{ border: '0px' }}>Proceed</button> : <button onClick={updateBookingWithSeats} className="btn btn-danger btn-lg" style={{ border: '0px' }}>Proceed</button>}
+
       </div>
-      
+
     </div>
 
 
-    
+
   );
 }
